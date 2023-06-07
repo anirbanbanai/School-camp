@@ -1,15 +1,17 @@
 
 import axios from "axios";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const Instractor = () => {
     const [data, setData] = useState([])
    
+  useEffect(()=>{
     axios.get('http://localhost:5000/ins')
     .then(data=>{
         console.log(data.data);
         setData(data.data)
     })
+  },[])
     return (
         <div className='pt-20 grid md:grid-cols-2 lg:grid-cols-3'>
             {

@@ -10,6 +10,7 @@ const handleOut = ()=>{
 }
     const navItems = <>
         <li className="text-xl"><Link to='/'>Home</Link></li>
+        <li className="text-xl"><Link to='/users'>All Users</Link></li>
         <li className="text-xl"><Link to='/instractor'>Instructors</Link></li>
         <li className="text-xl"><Link to='/class'>Classes</Link></li>
         {user && <li className="text-xl"><Link >

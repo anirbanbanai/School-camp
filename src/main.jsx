@@ -11,6 +11,7 @@ import Register from './Components/Register';
 import AuthProvider from './Auth/AuthProvider';
 import Instractor from './Components/Instractor';
 import Classes from './Components/Classes';
+import Users from './Components/Users';
 const router = createBrowserRouter([
   {
     path: "/",
@@ -35,6 +36,10 @@ const router = createBrowserRouter([
       {
         path:"/class",
         element:<Classes></Classes>
+      },
+      {
+        path:'/users',
+        element:<Users></Users>
       }
     ]
   },

@@ -37,7 +37,7 @@ const Register = () => {
                 setError(err.message)
             })
 
-          axios.post('http://localhost:5000/student', data)
+          axios.post('http://localhost:5000/users', data)
           .then(res =>{
             console.log(res);
           })
