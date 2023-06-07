@@ -1,20 +1,39 @@
 import { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
 import { AuthContext } from "../Auth/AuthProvider";
+import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
+import Swal from "sweetalert2";
 
 const Login = () => {
-    const {loginUser} = useContext(AuthContext)
+    const {loginUser, googleSignIn} = useContext(AuthContext)
     const [show, setShow] = useState(false);
+    const [error, setError] = useState(' ');
+   
+     const navigate = useNavigate()
     const { register, handleSubmit,reset   } = useForm();
     const onSubmit = data => {
-       
+       setError()
         console.log(data);
+
         loginUser(data.email, data.password)
         .then(result=>{
             console.log(result.user);
             reset()
+           
+            navigate('/')
+            Swal.fire({
+                position: 'top',
+                icon: 'success',
+                title: 'Login Successfull',
+                showConfirmButton: false,
+                timer: 1500
+              })
+        })
+        .catch(err=>{
+            console.log(err.message);
+    setError(err.message)
         })
     };
   
@@ -22,7 +41,7 @@ const Login = () => {
 
     
     const handleGogleLogin = ()=>{
-        console.log('click worked');
+        googleSignIn()
     }
     return (
         <div className="pt-20">
@@ -44,14 +63,15 @@ const Login = () => {
             <span className="label-text">Password</span>
           </label>
           <input type={!show ? "password" : "text"} placeholder="password" required  {...register("password")} className="input input-bordered" />
-          <h5 className="text-sm" onClick={()=>setShow(!show)}>Show Password</h5>
+          <h5 className="text-3xl" onClick={()=>setShow(!show)}>{show ?<AiFillEye/> : <AiFillEyeInvisible/> }</h5>
           
         </div>
         <div className="form-control mt-6">
           <button className="btn btn-primary">Login</button>
         </div>
         <h3>New user? <Link to='/register'>Register</Link></h3>
-       
+       <h3 className="text-red-500">{error}</h3>
+
       </form>
       <button onClick={handleGogleLogin} className="btn btn-circle btn-outline mx-auto text-4xl"><FcGoogle/></button>
       

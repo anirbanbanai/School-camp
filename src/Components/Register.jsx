@@ -2,6 +2,9 @@ import { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
 import { AuthContext } from "../Auth/AuthProvider";
 import { Link } from "react-router-dom";
+import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
+import Swal from "sweetalert2";
+
 
 const Register = () => {
     const [show, setShow] = useState(false);
@@ -17,6 +20,13 @@ const Register = () => {
                 console.log(result.user);
                 setSuccess('User created successfull')
                 reset()
+                Swal.fire({
+                    position: 'top',
+                    icon: 'success',
+                    title: 'User Created Successfull',
+                    showConfirmButton: false,
+                    timer: 1500
+                  })
             })
             .catch(err => {
                 console.log(err.message);
@@ -67,7 +77,7 @@ const Register = () => {
                                     },
                                 )} className="input input-bordered" />
                                 <label className="label">
-                                    <h5 className="text-sm" onClick={() => setShow(!show)}>Show Password</h5>
+                                    <h5 className="text-3xl" onClick={() => setShow(!show)}> {show ?<AiFillEye/> : <AiFillEyeInvisible/> }</h5>
                                 </label>
 
                                 {errors.confirmpassword?.type === 'required' && <span className="text-red-500">Password required</span>}
@@ -76,6 +86,12 @@ const Register = () => {
 
                                 <h3 className="text-red-600">{error}</h3>
                                 <h3 className="text-green-600">{success}</h3>
+                            </div>
+                            <div className="form-control">
+                                <label className="label">
+                                    <span className="label-text">Photo_Url</span>
+                                </label>
+                                <input type="text" {...register("photo",)} placeholder="photo" className="input input-bordered" />
                             </div>
                             <div className="form-control mt-6">
                                 <button className="btn btn-primary">Register</button>

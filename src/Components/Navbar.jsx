@@ -12,7 +12,12 @@ const handleOut = ()=>{
         <li className="text-xl"><Link to='/'>Home</Link></li>
         <li className="text-xl"><Link>Instructors</Link></li>
         <li className="text-xl"><Link>Classes</Link></li>
-        <li className="text-xl"><Link>DashBoard</Link></li>
+        <li className="text-xl"><Link >
+        <button className="btn btn-sm">
+
+  <div className="badge badge-secondary">DashBoard</div>
+</button>
+</Link></li>
     </>
     return (
         <div className="fixed z-10 w-full opacity-90">
