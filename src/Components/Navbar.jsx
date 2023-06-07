@@ -3,9 +3,9 @@ import { Link } from "react-router-dom";
 const Navbar = () => {
 
     const navItems = <>
-        <li className="text-xl"><Link>Home</Link></li>
-        <li className="text-xl"><Link>About</Link></li>
-        <li className="text-xl"><Link>Contact</Link></li>
+        <li className="text-xl"><Link to='/'>Home</Link></li>
+        <li className="text-xl"><Link>Instructors</Link></li>
+        <li className="text-xl"><Link>Classes</Link></li>
         <li className="text-xl"><Link>DashBoard</Link></li>
     </>
     return (
@@ -33,6 +33,10 @@ const Navbar = () => {
                     <Link to='/login'>
                         <button className="btn btn-warning btn-outline">Login</button>
                     </Link>
+                    <Link to='/register'>
+                        <button className="btn btn-primary btn-outline">Register</button>
+                    </Link>
+                
                 </div>
             </div>
         </div>
