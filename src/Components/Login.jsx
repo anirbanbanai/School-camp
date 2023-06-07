@@ -1,13 +1,26 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
+import { FcGoogle } from "react-icons/fc";
+import { AuthContext } from "../Auth/AuthProvider";
 
 const Login = () => {
+    const {loginUser} = useContext(AuthContext)
     const [show, setShow] = useState(false);
-    const { register, handleSubmit,  } = useForm();
-    const onSubmit = data => console.log(data);
+    const { register, handleSubmit,reset   } = useForm();
+    const onSubmit = data => {
+       
+        console.log(data);
+        loginUser(data.email, data.password)
+        .then(result=>{
+            console.log(result.user);
+            reset()
+        })
+    };
   
     // console.log(register);
+
+    
     const handleGogleLogin = ()=>{
         console.log('click worked');
     }
@@ -38,8 +51,10 @@ const Login = () => {
           <button className="btn btn-primary">Login</button>
         </div>
         <h3>New user? <Link to='/register'>Register</Link></h3>
+       
       </form>
-      <button onClick={handleGogleLogin} className="btn btn-circle btn-outline mx-auto">G</button>
+      <button onClick={handleGogleLogin} className="btn btn-circle btn-outline mx-auto text-4xl"><FcGoogle/></button>
+      
     </div>
   </div>
 </div>
