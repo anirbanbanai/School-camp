@@ -4,20 +4,20 @@ import { AuthContext } from "../Auth/AuthProvider";
 
 const Navbar = () => {
 const {user, logOut} = useContext(AuthContext);
-
+// console.log(user);
 const handleOut = ()=>{
     logOut()
 }
     const navItems = <>
         <li className="text-xl"><Link to='/'>Home</Link></li>
-        <li className="text-xl"><Link>Instructors</Link></li>
-        <li className="text-xl"><Link>Classes</Link></li>
-        <li className="text-xl"><Link >
+        <li className="text-xl"><Link to='/instractor'>Instructors</Link></li>
+        <li className="text-xl"><Link to='/class'>Classes</Link></li>
+        {user && <li className="text-xl"><Link >
         <button className="btn btn-sm">
 
   <div className="badge badge-secondary">DashBoard</div>
 </button>
-</Link></li>
+</Link></li>}
     </>
     return (
         <div className="fixed z-10 w-full opacity-90">
@@ -41,6 +41,7 @@ const handleOut = ()=>{
                     </ul>
                 </div>
                 <div className="navbar-end">
+                    <img src={user?.photoURL} alt="" />
                     {!user ? <Link to='/login'>
                         <button className="btn btn-warning btn-outline">Login</button>
                     </Link> : <button onClick={handleOut} className="btn btn-warning ">LOgOut</button>

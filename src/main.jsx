@@ -9,6 +9,8 @@ import Home from './Components/Home';
 import Login from './Components/Login';
 import Register from './Components/Register';
 import AuthProvider from './Auth/AuthProvider';
+import Instractor from './Components/Instractor';
+import Classes from './Components/Classes';
 const router = createBrowserRouter([
   {
     path: "/",
@@ -25,6 +27,14 @@ const router = createBrowserRouter([
       {
         path: "/register",
         element: <Register></Register>
+      },
+      {
+        path:'/instractor',
+        element:<Instractor></Instractor>
+      },
+      {
+        path:"/class",
+        element:<Classes></Classes>
       }
     ]
   },

@@ -1,0 +1,99 @@
+[
+    {
+      "name": "Football",
+      "description": "Enjoy the thrill of playing football with your friends and learn valuable teamwork skills.",
+      "price": 50,
+      "available_seats": 20,
+      "instructor_name": "John Doe",
+      "img": "https://uswfoxtail.blob.core.windows.net/foxtail-prod-uploads/images/3346066_VFL111.width-900.format-jpeg.jpg"
+    },
+    {
+      "name": "Basketball",
+      "description": "Improve your basketball skills and learn various techniques from experienced coaches.",
+      "price": 40,
+      "available_seats": 15,
+      "instructor_name": "Jane Smith",
+      "img": "https://www.ziprecruiter.com/svc/fotomat/public-ziprecruiter/cms/676154516BasketballCoach.jpg"
+    },
+    {
+      "name": "Tennis",
+      "description": "Learn to play tennis like a pro and enjoy competitive matches on the court.",
+      "price": 35,
+      "available_seats": 10,
+      "instructor_name": "Michael Johnson",
+      "img": "https://i0.wp.com/www.jobsinsports.com/blog/wp-content/uploads/2021/05/how-to-become-a-great-tennis-coach-featured-jobs-in-sports.jpg?resize=770%2C434&ssl=1"
+    },
+    {
+      "name": "Swimming",
+      "description": "Dive into the pool and learn swimming techniques from certified instructors.",
+      "price": 30,
+      "available_seats": 12,
+      "instructor_name": "Emily Davis",
+      "img": "https://media.istockphoto.com/id/1167733673/photo/female-coach-in-water-giving-group-of-children-swimming-lesson-in-indoor-pool.jpg?s=170667a&w=is&k=20&c=8-nbLRW1QAVcv7_3mcoZNrSh3SWG5XGnJLXVCG6al88="
+    },
+    {
+      "name": "Bicycling",
+      "description": "Spike, set, and serve your way through exciting volleyball matches with friends.",
+      "price": 45,
+      "available_seats": 18,
+      "instructor_name": "David Wilson",
+      "img": "https://speakingofbikes.com/wp-content/uploads/2022/11/kid-riding-a-bike.jpeg"
+    },
+    {
+      "name": "Cricket",
+      "description": "Experience the thrill of cricket and develop your batting and bowling skills.",
+      "price": 35,
+      "available_seats": 14,
+      "instructor_name": "Sarah Thompson",
+      "img": "https://warwickshirecricketboard.co.uk/wp-content/uploads/2021/05/Activator.png"
+    },
+    {
+      "name": "Boxing",
+      "description": "Learn the art of badminton and engage in friendly matches with fellow players.",
+      "price": 25,
+      "available_seats": 8,
+      "instructor_name": "Robert Brown",
+      "img": "https://kajabi-storefronts-production.kajabi-cdn.com/kajabi-storefronts-production/blogs/12633/images/QSPFGq5XSYirz0Ogn99x_boxing-trainer-640x640.jpg"
+    },
+    {
+      "name": "Skating",
+      "description": "Discover the elegance of golf and master your swing in a serene golf course.",
+      "price": 55,
+      "available_seats": 10,
+      "instructor_name": "Jessica Lee",
+      "img": "https://www.sheffieldcitytrust.org/Media/Default/Images/Lessons/childrens%20ice%20skating%20lessons%20sheffield.jpg"
+    },
+    {
+      "name": "Gymnastics",
+      "description": "Sharpen your reflexes and enjoy fast-paced table tennis matches with your peers.",
+      "price": 20,
+      "available_seats": 10,
+      "instructor_name": "William Miller",
+      "img": "https://media.istockphoto.com/id/665330152/photo/fit-woman-talking-to-her-trainer.jpg?s=612x612&w=0&k=20&c=EzqDg1WnAJL0j-qHkUZYIETR1NhuzRUpiKBnm3JorT4="
+    },
+    {
+      "name": "Running",
+      "description": "Participate in track and field events and improve your speed, strength, and agility.",
+      "price": 30,
+      "available_seats": 15,
+      "instructor_name": "Sophia Taylor",
+      "img": "https://media.istockphoto.com/id/1334047614/photo/physical-education-teacher-and-group-of-elementary-students-running-while-warming-up-at.jpg?s=170667a&w=0&k=20&c=-nTUs9pWQti0wkYJwoOeT1qqIuEMrHP2uAmbcHyiipw="
+    },
+    {
+      "name": "Hockey",
+      "description": "Experience the excitement of field hockey and develop your stick-handling skills.",
+      "price": 40,
+      "available_seats": 16,
+      "instructor_name": "James Anderson",
+      "img": "https://www.academyoffitnessprofessionals.com/wp-content/uploads/2014/08/Personal-Trainer.jpg"
+    },
+    {
+      "name": "Judo_Karate",
+      "description": "Tackle, pass, and score in thrilling rugby matches guided by experienced coaches.",
+      "price": 45,
+      "available_seats": 18,
+      "instructor_name": "Olivia White",
+      "img": "https://media.istockphoto.com/id/1068716940/photo/portrait-of-mixed-martial-artist-sitting-at-gym.jpg?s=612x612&w=0&k=20&c=_080JSDkyAavYI2JgMUERZGo5tm0aN1nc5bJxP4D2b0="
+    }
+  ]
+  

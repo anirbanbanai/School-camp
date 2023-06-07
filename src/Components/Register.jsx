@@ -1,9 +1,10 @@
-import { useContext, useState } from "react";
+import { useContext,  useState } from "react";
 import { useForm } from "react-hook-form";
 import { AuthContext } from "../Auth/AuthProvider";
 import { Link } from "react-router-dom";
 import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
 import Swal from "sweetalert2";
+import axios from "axios";
 
 
 const Register = () => {
@@ -13,8 +14,11 @@ const Register = () => {
     const { register, handleSubmit, formState: { errors }, reset } = useForm();
     const { signUp } = useContext(AuthContext);
 
+
     const onSubmit = data => {
         console.log(data)
+        setSuccess()
+        setError()
         signUp(data.email, data.confirmpassword)
             .then(result => {
                 console.log(result.user);
@@ -32,8 +36,15 @@ const Register = () => {
                 console.log(err.message);
                 setError(err.message)
             })
-    };
 
+          axios.post('http://localhost:5000/student', data)
+          .then(res =>{
+            console.log(res);
+          })
+          .catch(err=>{
+            console.log(err.message);
+          })
+    };
     return (
         <div className="pt-20">
             <div className="hero min-h-screen bg-base-200">
