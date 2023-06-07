@@ -12,6 +12,7 @@ import AuthProvider from './Auth/AuthProvider';
 import Instractor from './Components/Instractor';
 import Classes from './Components/Classes';
 import Users from './Components/Users';
+import DashBoard from './DashBoard/DashBoard';
 const router = createBrowserRouter([
   {
     path: "/",
@@ -36,13 +37,20 @@ const router = createBrowserRouter([
       {
         path:"/class",
         element:<Classes></Classes>
-      },
-      {
-        path:'/users',
-        element:<Users></Users>
       }
     ]
   },
+  {
+    path:'/dash',
+    element:<DashBoard></DashBoard>,
+    children:[
+      
+      {
+        path:'/dash/users',
+        element:<Users></Users>
+      }
+    ]
+  }
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')).render(
