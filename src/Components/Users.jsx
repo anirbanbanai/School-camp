@@ -7,12 +7,12 @@ const Users = () => {
     useEffect(() => {
         axios.get('http://localhost:5000/users')
             .then(data => {
-                console.log(data.data);
+                // console.log(data.data);
                 setData(data.data);
             })
     }, [])
     return (
-        <div className="pt-20">
+        <div className="">
             <h4 className="text-3xl font-semibold text-center">All users Here</h4>
             <div>
                 <div className="overflow-x-auto">

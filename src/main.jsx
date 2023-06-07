@@ -13,6 +13,12 @@ import Instractor from './Components/Instractor';
 import Classes from './Components/Classes';
 import Users from './Components/Users';
 import DashBoard from './DashBoard/DashBoard';
+import {
+  QueryClient,
+  QueryClientProvider,
+} from '@tanstack/react-query'
+const queryClient = new QueryClient() 
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -55,6 +61,8 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <AuthProvider>
-    <RouterProvider router={router} />
+      <QueryClientProvider client={queryClient}>
+      <RouterProvider router={router} />
+    </QueryClientProvider>
   </AuthProvider>
 )
