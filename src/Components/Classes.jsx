@@ -1,14 +1,19 @@
-import axios from "axios";
-import { useState } from "react";
+
+import { useEffect, useState } from "react";
 import SubClasses from "./SubClasses";
+import useAxiosSecure from "../Hooks/useAxiosSecure";
 
 const Classes = () => {
+    const [axiosSecure] = useAxiosSecure()
     const [data, setData] = useState([])
-    axios.get('http://localhost:5000/classes')
-    .then(data=>{
-        // console.log(data.data);
-        setData(data.data)
-    })
+   useEffect(()=>{
+    axiosSecure.get('/classes'
+    )
+   .then(data=>{
+       // console.log(data.data);
+       setData(data.data)
+   })
+   },[axiosSecure])
 
     return (
         <div className="pt-20">
