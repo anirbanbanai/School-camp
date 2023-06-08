@@ -20,7 +20,16 @@ import {
 
 import MySelect from './Components/MySelect';
 import PrivetRoute from './Auth/PrivetRoute';
-const queryClient = new QueryClient() 
+import StudentHome from './DashBoard/Student/StudentHome';
+import MySelectedClass from './DashBoard/Student/MySelectedClass';
+import MyEnrolClass from './DashBoard/Student/MyEnrolClass';
+import MyPay from './DashBoard/Student/MyPay';
+import InstractorHome from './DashBoard/Instractor/InstractorHome';
+import MyClass from './DashBoard/Instractor/MyClass';
+import AddClass from './DashBoard/Instractor/AddClass';
+import ManageClass from './DashBoard/Admin/ManageClass';
+import AdminHome from './DashBoard/Admin/AdminHome';
+const queryClient = new QueryClient()
 
 const router = createBrowserRouter([
   {
@@ -40,30 +49,68 @@ const router = createBrowserRouter([
         element: <Register></Register>
       },
       {
-        path:'/instractor',
-        element:<Instractor></Instractor>
+        path: '/instractor',
+        element: <Instractor></Instractor>
       },
       {
-        path:"/class",
-        element:<Classes></Classes>
+        path: "/class",
+        element: <Classes></Classes>
       },
       {
-        path:'/selected',
-        element:<PrivetRoute>
+        path: '/selected',
+        element: <PrivetRoute>
           <MySelect></MySelect>
         </PrivetRoute>
       },
-      
     ]
   },
   {
-    path:'/dash',
-    element:<DashBoard></DashBoard>,
-    children:[
-      
+    path: '/dash',
+    element: <DashBoard></DashBoard>,
+    children: [
+
       {
-        path:'/dash/users',
-        element:<Users></Users>
+        path: '/dash/users',
+        element: <Users></Users>
+      },
+      {
+        path:'/dash/manageClass',
+        element:<ManageClass></ManageClass>
+      },
+      {
+        path:"/dash/AdminHome",
+        element:<AdminHome></AdminHome>
+      },
+      // student dashboard
+      {
+        path:'/dash/studentHome',
+        element:<StudentHome></StudentHome>
+      },
+      {
+        path:'/dash/myselectedclass',
+        element:<MySelectedClass></MySelectedClass>
+      },
+      {
+        path:"/dash/myenrolclass",
+        element:<MyEnrolClass></MyEnrolClass>
+      },
+      {
+        path:"/dash/mypay",
+        element:<MyPay></MyPay>
+      },
+      // Instractor Dashboard
+
+      {
+        path:'/dash/instractorHome',
+        element:<InstractorHome></InstractorHome>
+      },
+      {
+        path:'/dash/myclass',
+        element:<MyClass></MyClass>
+      },
+      {
+        path:"/dash/addClass",
+        element:<AddClass></AddClass>
       }
     ]
   }
@@ -71,7 +118,7 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <AuthProvider>
-      <QueryClientProvider client={queryClient}>
+    <QueryClientProvider client={queryClient}>
       <RouterProvider router={router} />
     </QueryClientProvider>
   </AuthProvider>

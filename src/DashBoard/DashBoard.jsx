@@ -40,21 +40,21 @@ const DashBoard = () => {
 
 
                         {data.admin && <>
-                            <li><Link className="text-xl font-semibold">Admin Home</Link></li>
+                            <li><Link to='/dash/AdminHome' className="text-xl font-semibold">Admin Home</Link></li>
                             <li><Link className="text-xl font-semibold" to='/dash/users'>Manage User</Link></li>
-                            <li><Link className="text-xl font-semibold" to='/dash/manageclass'>Manage Clases</Link></li>
+                            <li><Link className="text-xl font-semibold" to='/dash/manageClass'>Manage Clases</Link></li>
                         </>
                             || insdata.instractor && <>
-                                <li><Link className="text-xl font-semibold">Instractor ZHome</Link></li>
-                                <li><Link className="text-xl font-semibold">My Class</Link></li>
-                                <li><Link className="text-xl font-semibold">Add Class</Link></li>
+                                <li><Link to='/dash/instractorHome' className="text-xl font-semibold">Instractor Home</Link></li>
+                                <li><Link to='/dash/myclass' className="text-xl font-semibold">My Class</Link></li>
+                                <li><Link to='/dash/addclass' className="text-xl font-semibold">Add Class</Link></li>
                             </>
                             ||
                             <>
-                                <li><Link className="text-xl font-semibold">Student Home</Link></li>
-                                <li><Link className="text-xl font-semibold">My Selected Class</Link></li>
-                                <li><Link className="text-xl font-semibold">My Enrool Class</Link></li>
-                                <li><Link className="text-xl font-semibold">My Pay</Link></li>
+                                <li><Link to='/dash/studentHome' className="text-xl font-semibold">Student Home</Link></li>
+                                <li><Link to='/dash/myselectedclass' className="text-xl font-semibold">My Selected Class</Link></li>
+                                <li><Link to='/dash/myenrolclass' className="text-xl font-semibold">My Enrool Class</Link></li>
+                                <li><Link to='/dash/mypay' className="text-xl font-semibold">My Pay</Link></li>
                             </>}
 
 
