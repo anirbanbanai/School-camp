@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 
 const SubClasses = ({main}) => {
   
@@ -10,7 +11,10 @@ const SubClasses = ({main}) => {
                         <h3>{main.description}</h3>
                         <p>price: ${main.price}</p>
                         <p>Available seat : {main.available_seats}</p>
+                        
+                        <Link to='/selected'>
                         <button className="btn btn-secondary ">Selecet</button>
+                        </Link>
                     </div>
         </div>
     );

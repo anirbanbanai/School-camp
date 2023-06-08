@@ -2,6 +2,7 @@ import axios from 'axios';
 import { BiUserVoice } from 'react-icons/bi';
 import { GrUserAdmin } from 'react-icons/gr';
 import { RiDeleteBin6Line } from 'react-icons/ri';
+import Swal from 'sweetalert2';
 
 const SubUsers = ({ m ,i}) => {
     const handleAddAdmin=(id)=>{
@@ -9,6 +10,24 @@ const SubUsers = ({ m ,i}) => {
         .then(data=>{
             console.log(data);
         })
+    }
+    const makeInstractor=(id)=>{
+        axios.patch(`http://localhost:5000/users/ins/${id}`)
+        .then(data=>{
+            console.log(data);
+        })
+    }
+    const handleDelete = (id)=>{
+        axios.delete(`http://localhost:5000/users/${id}`)
+       .then((data) => {
+            if (data.data.deletedCount) {
+              Swal.fire(
+                'Deleted!',
+                'Your file has been deleted.',
+                'success'
+              )
+            }
+          })
     }
     return (
        
@@ -21,13 +40,13 @@ const SubUsers = ({ m ,i}) => {
                 </td>
                 <td>{m.email}</td>
                 <td>
-                    <button  className="btn btn-warning btn-md text-2xl"><BiUserVoice/></button>
+                  {m.role === "instractor" ? "Instractor" : <button onClick={()=>makeInstractor(m._id)}  className="btn btn-warning btn-md text-2xl"><BiUserVoice/></button>}
                 </td>
                 <td>
                     { m.role === "admin" ? "admin" : <button onClick={()=>handleAddAdmin(m._id)} className="btn btn-warning btn-md text-2xl"><GrUserAdmin/></button>}
                 </td>
                 <td>
-                    <button className="btn btn-warning btn-md text-2xl"><RiDeleteBin6Line/></button>
+                    <button onClick={()=>handleDelete(m._id)} className="btn btn-warning btn-md text-2xl"><RiDeleteBin6Line/></button>
                 </td>
             </tr>
           </>

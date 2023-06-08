@@ -17,6 +17,9 @@ import {
   QueryClient,
   QueryClientProvider,
 } from '@tanstack/react-query'
+
+import MySelect from './Components/MySelect';
+import PrivetRoute from './Auth/PrivetRoute';
 const queryClient = new QueryClient() 
 
 const router = createBrowserRouter([
@@ -43,7 +46,14 @@ const router = createBrowserRouter([
       {
         path:"/class",
         element:<Classes></Classes>
-      }
+      },
+      {
+        path:'/selected',
+        element:<PrivetRoute>
+          <MySelect></MySelect>
+        </PrivetRoute>
+      },
+      
     ]
   },
   {
