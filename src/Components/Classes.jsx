@@ -13,7 +13,7 @@ const Classes = () => {
        // console.log(data.data);
        setData(data.data)
    })
-   },[axiosSecure])
+   },[])
 
     return (
         <div className="pt-20">
