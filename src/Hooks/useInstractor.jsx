@@ -1,15 +1,21 @@
 import { useQuery } from "@tanstack/react-query";
+import useAuth from "./useAuth";
+import useAxiosSecure from "./useAxiosSecure";
 
 const useInstractor = () => {
-    const {data: instractor = [], isLoading: loading, refetch} = useQuery({
+    const {user} = useAuth();
+    const [axiosSecure] = useAxiosSecure()
+    const {data: instractor =false, isLoading: isInsloading, refetch} = useQuery({
         queryKey:['instractor'],
+        enabled: !!user?.email && !!localStorage.getItem("access-token"),
         queryFn: async()=>{
-            const res = await fetch('http://localhost:5000/ins')
-            return res.json()
+            const res = await axiosSecure.get(`/users/ins/${user?.email}`)
+            console.log('is Instror ', res);
+            return res.data.instractor;
         }
     });
 // console.log(instractor);
-    return [instractor, loading, refetch]
+    return [instractor, isInsloading, refetch]
 };
 
 export default useInstractor;

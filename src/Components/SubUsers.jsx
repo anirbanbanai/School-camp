@@ -40,10 +40,10 @@ const SubUsers = ({ m ,i}) => {
                 </td>
                 <td>{m.email}</td>
                 <td>
-                  {m.role === "instractor" ? "Instractor" : <button onClick={()=>makeInstractor(m._id)}  className="btn btn-warning btn-md text-2xl"><BiUserVoice/></button>}
+                  {m.role === "instractor" ? <p className='text-xl font-bold'>instractor</p>: <button onClick={()=>makeInstractor(m._id)}  className="btn btn-warning btn-md text-2xl"><BiUserVoice/></button>}
                 </td>
                 <td>
-                    { m.role === "admin" ? "admin" : <button onClick={()=>handleAddAdmin(m._id)} className="btn btn-warning btn-md text-2xl"><GrUserAdmin/></button>}
+                    { m.role === "admin" ? <p className='text-xl font-bold'>Admin</p>: <button onClick={()=>handleAddAdmin(m._id)} className="btn btn-warning btn-md text-2xl"><GrUserAdmin/></button>}
                 </td>
                 <td>
                     <button onClick={()=>handleDelete(m._id)} className="btn btn-warning btn-md text-2xl"><RiDeleteBin6Line/></button>

@@ -1,30 +1,36 @@
 import { Link, Outlet } from "react-router-dom";
 import { AiOutlineMenuUnfold } from 'react-icons/ai';
-import { useContext, useEffect, useState } from "react";
-import axios from "axios";
-import { AuthContext } from "../Auth/AuthProvider";
+// import { useContext, useEffect, useState } from "react";
+// import axios from "axios";
+// import { AuthContext } from "../Auth/AuthProvider";
+import useAdmin from "../Hooks/useAdmin";
+import useInstractor from "../Hooks/useInstractor";
+import useAuth from "../Hooks/useAuth";
 
 
 const DashBoard = () => {
-    const [data, setData] = useState([])
-    const [insdata, setInsData] = useState([])
-    const { user } = useContext(AuthContext)
-    useEffect(() => {
-        axios.get(`http://localhost:5000/users/admin/${user?.email}`)
-            .then(data => {
-                // console.log(data.data);
-                setData(data.data)
-            })
-    }, [user?.email])
+    const {loading} = useAuth()
+    // const [insdata, setInsData] = useState([])
+    // const { user } = useContext(AuthContext)
 
-    useEffect(() => {
-        axios.get(`http://localhost:5000/users/ins/${user?.email}`)
-            .then(insdata => {
-                // console.log(data.data);
-                setInsData(insdata.data)
-            })
-    }, [user?.email])
+    // useEffect(() => {
+    //     axios.get(`http://localhost:5000/users/ins/${user?.email}`)
+    //         .then(insdata => {
+    //             // console.log(data.data);
+    //             setInsData(insdata.data)
+    //         })
+    // }, [user?.email])
     // console.log(insdata);
+
+    const [isAdmin, loading3] = useAdmin();
+    const [isInsloading, loading2 ] = useInstractor()
+    console.log(isInsloading);
+    console.log(isAdmin);
+    console.log(loading2, loading3);
+    if(loading || loading2 || loading3){
+        
+        return <progress className="progress w-56"></progress>
+    }
     return (
         <div>
             <div className="drawer lg:drawer-open">
@@ -39,23 +45,20 @@ const DashBoard = () => {
                     <ul className="menu p-4 w-80 h-full bg-yellow-300 text-base-content">
 
 
-                        {data.admin && <>
-                            <li><Link to='/dash/AdminHome' className="text-xl font-semibold">Admin Home</Link></li>
+                        {isAdmin && <>
+                            <li><Link to='/dash/AdminHome' className="text-xl font-semibold">Admin Home </Link></li>
                             <li><Link className="text-xl font-semibold" to='/dash/users'>Manage User</Link></li>
                             <li><Link className="text-xl font-semibold" to='/dash/manageClass'>Manage Clases</Link></li>
-                        </>
-                            || insdata.instractor && <>
+                        </>}
+                        
+
+                            {
+                                isInsloading && <>
                                 <li><Link to='/dash/instractorHome' className="text-xl font-semibold">Instractor Home</Link></li>
                                 <li><Link to='/dash/myclass' className="text-xl font-semibold">My Class</Link></li>
                                 <li><Link to='/dash/addclass' className="text-xl font-semibold">Add Class</Link></li>
                             </>
-                            ||
-                            <>
-                                <li><Link to='/dash/studentHome' className="text-xl font-semibold">Student Home</Link></li>
-                                <li><Link to='/dash/myselectedclass' className="text-xl font-semibold">My Selected Class</Link></li>
-                                <li><Link to='/dash/myenrolclass' className="text-xl font-semibold">My Enrool Class</Link></li>
-                                <li><Link to='/dash/mypay' className="text-xl font-semibold">My Pay</Link></li>
-                            </>}
+                            }
 
 
 

@@ -1,22 +1,23 @@
 import { useQuery } from "@tanstack/react-query";
-import axios from "axios";
-import { useContext } from "react";
-import { AuthContext } from "../Auth/AuthProvider";
+import useAuth from "./useAuth";
+import useAxiosSecure from "./useAxiosSecure";
 
-const useAdmin= ()=>{
-    const {user} = useContext(AuthContext);
+const useAdmin = () => {
+    const { user } = useAuth()
     console.log(user?.email);
-const {data: isAdmin, isLoading: isAdminLoading} = useQuery({
-    queryKey:['isAdmin', user?.email],
-    queryFn: async()=>{
-      axios.get(`http://localhost:5000/users/admin/${user?.email}`)
-        .then(data=>{
-            console.log(data);
-        })
-       
-    }
-})
+    const [axiosSecure] = useAxiosSecure()
 
-return [isAdmin, isAdminLoading]
+    const { data: isAdmin, } = useQuery({
+        queryKey: ['isAdmin', user?.email],
+        enabled: !!user?.email && !!localStorage.getItem("access-token"),
+        queryFn: async () => {
+           const res = await axiosSecure.get(`/users/admin/${user?.email}`)
+           console.log('is admin response', res);
+           return res.data.admin;
+        }
+    })
+console.log(isAdmin);
+    return [isAdmin]
+
 }
 export default useAdmin;

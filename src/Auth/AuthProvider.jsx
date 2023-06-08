@@ -8,7 +8,7 @@ const auth = getAuth(app);
 
 const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null);
-
+    const [, setLoadng] = useState(true);
     const signUp = (email, pasword) => {
         return createUserWithEmailAndPassword(auth, email, pasword);
     }
@@ -27,8 +27,9 @@ const AuthProvider = ({ children }) => {
 
     useEffect(() => {
         const unsubcriber = onAuthStateChanged(auth, currentuser => {
-            setUser(currentuser);
+            console.log(currentuser);
             if(currentuser?.email){
+                setUser(currentuser);
                 fetch('http://localhost:5000/jwt',{
                     method:"POST",
                     headers:{
@@ -39,9 +40,11 @@ const AuthProvider = ({ children }) => {
                 .then(res=>res.json())
                 .then(data=>{
                     localStorage.setItem("access-token", data?.token)
+                    setLoadng(false)
                 })
             }
             localStorage.removeItem("access-token")
+            setLoadng(false)
         });
         return () => {
             return unsubcriber()

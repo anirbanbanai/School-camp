@@ -15,6 +15,8 @@ const Classes = () => {
    })
    },[])
 
+ 
+
     return (
         <div className="pt-20">
             <h4 className="text-4xl font-semibold text-center">All class </h4>
