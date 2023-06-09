@@ -26,8 +26,8 @@ const AddClass = () => {
                 console.log(imgResponse);
                 if (imgResponse.success) {
                     const imgUrl = imgResponse.data.display_url;
-                    const { name, price, available_seats, instructor_name, email } = data;
-                    const newItem = { name, price: parseFloat(price), available_seats: parseFloat(available_seats), instructor_name, email, img: imgUrl }
+                    const { name,details, price, available_seats, instructor_name, email } = data;
+                    const newItem = { name,details , price: parseFloat(price), available_seats: parseFloat(available_seats), instructor_name, email, img: imgUrl }
                     console.log(newItem);
 
                     axiosSecure.post('/classes', newItem)
@@ -47,9 +47,6 @@ const AddClass = () => {
                 }
             })
 
-
-
-
     };
     return (
         <div className="m-10">
@@ -66,7 +63,7 @@ const AddClass = () => {
                         <label className="label">
                             <span className="label-text">Instructor name</span>
                         </label>
-                        <input type="text" {...register("instructor_name", { required: true })} placeholder="Instructor Name" className="input input-bordered w-full " />
+                        <input type="text" defaultValue={user?.displayName} {...register("instructor_name", { required: true })} placeholder="Instructor Name" className="input input-bordered w-full " />
                     </div>
                 </div>
                 <div className="flex justify-between">
@@ -74,7 +71,7 @@ const AddClass = () => {
                         <label className="label">
                             <span className="label-text">Instructor email</span>
                         </label>
-                        <input type="text" {...register("email", { required: true })} placeholder="Email" className="input input-bordered w-full " />
+                        <input type="text" defaultValue={user?.email} {...register("email", { required: true })} placeholder="Email" className="input input-bordered w-full " />
                     </div>
                     <div className="form-control w-full max-w-xs">
                         <label className="label">
@@ -88,6 +85,12 @@ const AddClass = () => {
                         </label>
                         <input type="number" {...register("available_seats", { required: true })} placeholder="avilable seat" className="input input-bordered w-full " />
                     </div>
+                </div>
+                <div className="form-control">
+                    <label className="label">
+                        <span className="label-text">Description</span>
+                    </label>
+                    <textarea {...register("details", { required: true })} className="textarea textarea-bordered h-24" placeholder="Details"></textarea>
                 </div>
 
                 <div className="mt-5">

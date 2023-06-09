@@ -43,7 +43,7 @@ const Navbar = () => {
                     </ul>
                 </div>
                 <div className="navbar-end">
-                    <img src={user?.photoURL} alt="" />
+                    <img className="w-[80px] rounded-full" src={user?.photoURL} alt="" />
                     {!user && <Link to='/login'>
                         <button className="btn btn-warning btn-outline">Login</button>
                     </Link>} 
