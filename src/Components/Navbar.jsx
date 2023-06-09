@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink} from "react-router-dom";
 import { AuthContext } from "../Auth/AuthProvider";
 
 const Navbar = () => {
@@ -7,7 +7,7 @@ const Navbar = () => {
     // console.log(user);
     const handleOut = () => {
         logOut()
-
+        
     }
     const navItems = <>
         <li className="text-xl"><NavLink to='/'>Home</NavLink></li>
@@ -44,9 +44,11 @@ const Navbar = () => {
                 </div>
                 <div className="navbar-end">
                     <img src={user?.photoURL} alt="" />
-                    {!user ? <Link to='/login'>
+                    {!user && <Link to='/login'>
                         <button className="btn btn-warning btn-outline">Login</button>
-                    </Link> : <button onClick={handleOut} className="btn btn-warning ">LOgOut</button>
+                    </Link>} 
+                    
+                    {user&& <button onClick={handleOut} className="btn btn-warning ">LOgOut</button>
                     }
                     <Link to='/register'>
                         <button className="btn btn-primary btn-outline">Register</button>

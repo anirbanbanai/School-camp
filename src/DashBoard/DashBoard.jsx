@@ -51,14 +51,9 @@ const DashBoard = () => {
                             </>
                         }
 
-                        {
-                            isAdmin || isInsloading ? <></> : <>
-                                <li> <Link className="text-xl font-semibold">Student HOme</Link></li>
-                                <li>  <Link to='/dash/myselectedclass' className="text-xl font-semibold">My Seleted Classes</Link></li>
-                                <li>   <Link to='/dash/myenrolclass' className="text-xl font-semibold">My Enrol Classes</Link></li>
-                            </>
-                        }
-
+                        {/* <li> <Link className="text-xl font-semibold">Student HOme</Link></li>
+                        <li>  <Link to='/dash/myselectedclass' className="text-xl font-semibold">My Seleted Classes</Link></li>
+                        <li>   <Link to='/dash/myenrolclass' className="text-xl font-semibold">My Enrol Classes</Link></li> */}
 
 
                         <div className="divider divide-x-8"></div>

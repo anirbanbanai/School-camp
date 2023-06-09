@@ -20,13 +20,14 @@ const SubUsers = ({ m, i ,refetch}) => {
         axios.patch(`http://localhost:5000/users/ins/${id._id}`)
             .then(data => {
                 console.log(data);
+                axiosSecure.post('/ins', id)
+                .then(data=>{
+                    console.log(data);
+                })
                 refetch()
             });
 
-        axiosSecure.post('/ins', id)
-        .then(data=>{
-            console.log(data);
-        })
+       
 
     }
     const handleDelete = (id) => {

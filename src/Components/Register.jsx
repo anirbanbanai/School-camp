@@ -102,7 +102,7 @@ const Register = () => {
                                 <label className="label">
                                     <span className="label-text">Photo_Url</span>
                                 </label>
-                                <input type="text" {...register("photo",)} placeholder="photo" className="input input-bordered" />
+                                <input type="text" {...register("img",)} placeholder="photo" className="input input-bordered" />
                             </div>
                             <div className="form-control mt-6">
                                 <button className="btn btn-primary">Register</button>
