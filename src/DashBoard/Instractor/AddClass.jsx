@@ -22,7 +22,6 @@ const AddClass = () => {
                     showConfirmButton: false,
                     timer: 1500
                   })
-                  
             }
         })
     };

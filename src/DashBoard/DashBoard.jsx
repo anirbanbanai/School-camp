@@ -9,15 +9,15 @@ import useAuth from "../Hooks/useAuth";
 
 
 const DashBoard = () => {
-    const {loading} = useAuth()
+    const { loading } = useAuth()
     const [isAdmin, loading3] = useAdmin();
-    const [isInsloading, loading2 ] = useInstractor()
+    const [isInsloading, loading2] = useInstractor()
 
 
     // console.log({loading2, loading3, loading});
-   
-    if(loading || loading2 || loading3){
-        
+
+    if (loading || loading2 || loading3) {
+
         return <div className="text-center text-5xl pt-20">
             <span className="loading loading-infinity loading-lg bg-blue-700"></span>
         </div>
@@ -41,17 +41,23 @@ const DashBoard = () => {
                             <li><Link className="text-xl font-semibold" to='/dash/users'>Manage User</Link></li>
                             <li><Link className="text-xl font-semibold" to='/dash/manageClass'>Manage Clases</Link></li>
                         </>}
-                        
 
-                            {
-                                isInsloading && <>
+
+                        {
+                            isInsloading && <>
                                 <li><Link to='/dash/instractorHome' className="text-xl font-semibold">Instractor Home</Link></li>
                                 <li><Link to='/dash/myclass' className="text-xl font-semibold">My Class</Link></li>
                                 <li><Link to='/dash/addclass' className="text-xl font-semibold">Add Class</Link></li>
                             </>
-                            }
+                        }
 
-
+                        {
+                            isAdmin || isInsloading ? <></> : <>
+                                <li> <Link className="text-xl font-semibold">Student HOme</Link></li>
+                                <li>  <Link to='/dash/myselectedclass' className="text-xl font-semibold">My Seleted Classes</Link></li>
+                                <li>   <Link to='/dash/myenrolclass' className="text-xl font-semibold">My Enrol Classes</Link></li>
+                            </>
+                        }
 
 
 

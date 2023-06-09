@@ -12,7 +12,7 @@ const SubClasses = ({ main }) => {
 
     const handleSelected = (data) => {
         delete data._id
-        console.log(data);
+        // console.log(data);
         if (!user) {
             Swal.fire({
                 title: 'Please login',

@@ -1,17 +1,18 @@
 
-import axios from "axios";
 import { useEffect, useState } from "react";
+import useAxiosSecure from "../Hooks/useAxiosSecure";
 
 const Instractor = () => {
+    const [axiosSecure] = useAxiosSecure()
     const [data, setData] = useState([])
    
   useEffect(()=>{
-    axios.get('http://localhost:5000/ins')
+   axiosSecure.get('/ins')
     .then(data=>{
-        console.log(data.data);
+        // console.log(data.data);
         setData(data.data)
     })
-  },[])
+  },[axiosSecure])
     return (
         <div className='pt-20 grid md:grid-cols-2 lg:grid-cols-3'>
             {

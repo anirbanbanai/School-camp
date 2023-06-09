@@ -16,7 +16,7 @@ const useInstractor = () => {
             return res.data.instractor;
         }
     });
-// console.log(instractor);
+console.log(instractor);
     return [instractor, isInsloading, refetch]
 };
 

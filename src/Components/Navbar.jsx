@@ -3,22 +3,23 @@ import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../Auth/AuthProvider";
 
 const Navbar = () => {
-const {user, logOut} = useContext(AuthContext);
-// console.log(user);
-const handleOut = ()=>{
-    logOut()
-}
+    const { user, logOut } = useContext(AuthContext);
+    // console.log(user);
+    const handleOut = () => {
+        logOut()
+
+    }
     const navItems = <>
         <li className="text-xl"><NavLink to='/'>Home</NavLink></li>
-      
-        <li className="text-xl"><NavLink to='/instractor'>Instructors</NavLink></li>
-        <li className="text-xl"><Link to='/class'>Classes</Link></li>
-        {user && <li className="text-xl"><Link to='/dash'>
-        <button className="btn btn-sm">
 
-  <div className="badge badge-secondary">DashBoard</div>
-</button>
-</Link></li>}
+        <li className="text-xl"><NavLink to='/instractor'>Instructors</NavLink></li>
+        <li className="text-xl"><NavLink to='/class'>Classes</NavLink></li>
+        {user && <li className="text-xl"><Link to='/dash'>
+            <button className="btn btn-sm">
+
+                <div className="badge badge-secondary">DashBoard</div>
+            </button>
+        </Link></li>}
     </>
     return (
         <div className="fixed z-10 w-full opacity-90">
@@ -50,7 +51,7 @@ const handleOut = ()=>{
                     <Link to='/register'>
                         <button className="btn btn-primary btn-outline">Register</button>
                     </Link>
-                
+
                 </div>
             </div>
         </div>

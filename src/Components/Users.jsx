@@ -1,16 +1,10 @@
-import axios from "axios";
-import { useEffect, useState } from "react";
 import SubUsers from "./SubUsers";
+import useUsers from "../Hooks/useUsers";
 
 const Users = () => {
-    const [data, setData] = useState([])
-    useEffect(() => {
-        axios.get('http://localhost:5000/users')
-            .then(data => {
-                // console.log(data.data);
-                setData(data.data);
-            })
-    }, [])
+    const [users, ,refetch] = useUsers();
+    console.log(users);
+   
     return (
         <div className="">
             <h4 className="text-3xl font-semibold text-center">All users Here</h4>
@@ -31,7 +25,7 @@ const Users = () => {
                         </thead>
                         <tbody>
                             {
-                                data.map((m,index) => <SubUsers key={m._id} m={m} i={index}></SubUsers>)
+                                users.map((m,index) => <SubUsers key={m._id} m={m} i={index} refetch={refetch}></SubUsers>)
                             }
 
 

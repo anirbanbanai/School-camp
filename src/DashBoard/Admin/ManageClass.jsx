@@ -1,19 +1,12 @@
-import { useEffect, useState } from "react";
-import useAxiosSecure from "../../Hooks/useAxiosSecure";
+
 import SubManageClass from "./SubManageClass";
+import useClasses from "../../Hooks/useClasses";
 // import SubManageClass from "./SubManageClass";
 
 const ManageClass = () => {
-    const [data, setData] = useState();
-    const [axiosSecure] = useAxiosSecure();
-    useEffect(() => {
-        axiosSecure.get('/classes')
-            .then(data => {
-                console.log(data);
-                setData(data.data)
-            })
-    }, [axiosSecure])
-    console.log(data);
+    const [classes] = useClasses();
+    console.log(classes);
+ 
     return (
         <div className="m-10">
             <h5 className="text-3xl font-semibold text-center">Manage Class</h5>
@@ -36,7 +29,7 @@ const ManageClass = () => {
                         </thead>
                         <tbody>
                             {
-                                data?.map((m, index) => <SubManageClass key={m._id} main={m} i={index}></SubManageClass>)
+                                classes?.map((m, index) => <SubManageClass key={m._id} main={m} i={index}></SubManageClass>)
                             }
 
                         </tbody>
