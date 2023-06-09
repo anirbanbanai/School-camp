@@ -35,7 +35,29 @@ const DashBoard = () => {
                     <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
                     <ul className="menu p-4 w-80 h-full bg-yellow-300 text-base-content">
 
+                        {
+                            isAdmin && <>
+                                <li><Link to='/dash/AdminHome' className="text-xl font-semibold">Admin Home </Link></li>
+                                <li><Link className="text-xl font-semibold" to='/dash/users'>Manage User</Link></li>
+                                <li><Link className="text-xl font-semibold" to='/dash/manageClass'>Manage Clases</Link></li>
+                            </>
+                            
+                            ||
+                            
+                            isInsloading && <>
+                                <li><Link to='/dash/instractorHome' className="text-xl font-semibold">Instractor Home</Link></li>
+                                <li><Link to='/dash/myclass' className="text-xl font-semibold">My Class</Link></li>
+                                <li><Link to='/dash/addclass' className="text-xl font-semibold">Add Class</Link></li>
+                            </>
+                            ||
+                            <>
+                                <li> <Link className="text-xl font-semibold">Student HOme</Link></li>
+                                <li>  <Link to='/dash/myselectedclass' className="text-xl font-semibold">My Seleted Classes</Link></li>
+                                <li>   <Link to='/dash/myenrolclass' className="text-xl font-semibold">My Enrol Classes</Link></li>
+                            </>
+                        }
 
+                        {/* 
                         {isAdmin && <>
                             <li><Link to='/dash/AdminHome' className="text-xl font-semibold">Admin Home </Link></li>
                             <li><Link className="text-xl font-semibold" to='/dash/users'>Manage User</Link></li>
@@ -49,7 +71,7 @@ const DashBoard = () => {
                                 <li><Link to='/dash/myclass' className="text-xl font-semibold">My Class</Link></li>
                                 <li><Link to='/dash/addclass' className="text-xl font-semibold">Add Class</Link></li>
                             </>
-                        }
+                        } */}
 
                         {/* <li> <Link className="text-xl font-semibold">Student HOme</Link></li>
                         <li>  <Link to='/dash/myselectedclass' className="text-xl font-semibold">My Seleted Classes</Link></li>

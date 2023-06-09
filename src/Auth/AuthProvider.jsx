@@ -28,9 +28,9 @@ const AuthProvider = ({ children }) => {
     useEffect(() => {
         const unsubcriber = onAuthStateChanged(auth, currentuser => {
             // console.log(currentuser);
+            setUser(currentuser);
             if(currentuser?.email){
-                setUser(currentuser);
-                fetch('http://localhost:5000/jwt',{
+                fetch('https://assign-12-server-tan.vercel.app/jwt',{
                     method:"POST",
                     headers:{
                         "content-type": "application/json"

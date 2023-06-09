@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 const PopularInstractor = () => {
     const [data, setData] = useState([])
     useEffect(()=>{
-        fetch('http://localhost:5000/ins')
+        fetch('https://assign-12-server-tan.vercel.app/ins')
         .then(res=>res.json())
         .then(data=>{
             // console.log(data);

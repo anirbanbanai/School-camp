@@ -9,7 +9,7 @@ const SubUsers = ({ m, i ,refetch}) => {
     const [axiosSecure] = useAxiosSecure()
 
     const handleAddAdmin = (id) => {
-        axios.patch(`http://localhost:5000/users/admin/${id._id}`)
+        axios.patch(`https://assign-12-server-tan.vercel.app/users/admin/${id._id}`)
             .then(data => {
                 console.log(data);
                 refetch()
@@ -17,7 +17,7 @@ const SubUsers = ({ m, i ,refetch}) => {
     }
     const makeInstractor = (id) => {
         console.log(id);
-        axios.patch(`http://localhost:5000/users/ins/${id._id}`)
+        axios.patch(`https://assign-12-server-tan.vercel.app/users/ins/${id._id}`)
             .then(data => {
                 console.log(data);
                 axiosSecure.post('/ins', id)
@@ -31,7 +31,7 @@ const SubUsers = ({ m, i ,refetch}) => {
 
     }
     const handleDelete = (id) => {
-        axios.delete(`http://localhost:5000/users/${id}`)
+        axios.delete(`https://assign-12-server-tan.vercel.app/users/${id}`)
             .then((data) => {
                 if (data.data.deletedCount) {
                     Swal.fire(

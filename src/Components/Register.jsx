@@ -62,7 +62,7 @@ const Register = () => {
                     }
                 })
 
-        //   axios.post('http://localhost:5000/users', data)
+        //   axios.post('https://assign-12-server-tan.vercel.app/users', data)
         //   .then(res =>{
         //     console.log(res);
         //   })
