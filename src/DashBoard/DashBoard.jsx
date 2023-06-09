@@ -10,27 +10,19 @@ import useAuth from "../Hooks/useAuth";
 
 const DashBoard = () => {
     const {loading} = useAuth()
-    // const [insdata, setInsData] = useState([])
-    // const { user } = useContext(AuthContext)
-
-    // useEffect(() => {
-    //     axios.get(`http://localhost:5000/users/ins/${user?.email}`)
-    //         .then(insdata => {
-    //             // console.log(data.data);
-    //             setInsData(insdata.data)
-    //         })
-    // }, [user?.email])
-    // console.log(insdata);
-
     const [isAdmin, loading3] = useAdmin();
     const [isInsloading, loading2 ] = useInstractor()
-    console.log(isInsloading);
-    console.log(isAdmin);
-    console.log(loading2, loading3);
+
+
+    // console.log({loading2, loading3, loading});
+   
     if(loading || loading2 || loading3){
         
-        return <progress className="progress w-56"></progress>
+        return <div className="text-center text-5xl pt-20">
+            <span className="loading loading-infinity loading-lg bg-blue-700"></span>
+        </div>
     }
+    console.log(import.meta.env.DB_apiKeyss);
     return (
         <div>
             <div className="drawer lg:drawer-open">

@@ -4,7 +4,7 @@ import useAxiosSecure from "./useAxiosSecure";
 
 const useAdmin = () => {
     const { user } = useAuth()
-    console.log(user?.email);
+    // console.log(user?.email);
     const [axiosSecure] = useAxiosSecure()
 
     const { data: isAdmin, } = useQuery({
@@ -12,11 +12,11 @@ const useAdmin = () => {
         enabled: !!user?.email && !!localStorage.getItem("access-token"),
         queryFn: async () => {
            const res = await axiosSecure.get(`/users/admin/${user?.email}`)
-           console.log('is admin response', res);
+        //    console.log('is admin response', res);
            return res.data.admin;
         }
     })
-console.log(isAdmin);
+// console.log(isAdmin);
     return [isAdmin]
 
 }
