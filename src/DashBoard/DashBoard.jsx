@@ -22,7 +22,6 @@ const DashBoard = () => {
             <span className="loading loading-infinity loading-lg bg-blue-700"></span>
         </div>
     }
-    console.log(import.meta.env.DB_apiKeyss);
     return (
         <div>
             <div className="drawer lg:drawer-open">

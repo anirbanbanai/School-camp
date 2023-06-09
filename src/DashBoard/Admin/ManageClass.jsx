@@ -28,9 +28,10 @@ const ManageClass = () => {
                                 <td className="text-sm">Instructor </td>
                                 <td className="text-sm">Available seat</td>
                                 <td className="text-sm">Price</td>
-                                <td className="text-sm">Approve</td>
-                                <th className="text-sm">Deny</th>
-                                <th className="text-sm">Send Feedback</th>
+                                <td className="text-sm">Status</td>
+                                <td className="text-sm">Action</td>
+                                {/* <th className="text-sm">Deny</th>
+                                <th className="text-sm">Send Feedback</th> */}
                             </tr>
                         </thead>
                         <tbody>

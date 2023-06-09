@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../Auth/AuthProvider";
 
 const Navbar = () => {
@@ -9,9 +9,9 @@ const handleOut = ()=>{
     logOut()
 }
     const navItems = <>
-        <li className="text-xl"><Link to='/'>Home</Link></li>
+        <li className="text-xl"><NavLink to='/'>Home</NavLink></li>
       
-        <li className="text-xl"><Link to='/instractor'>Instructors</Link></li>
+        <li className="text-xl"><NavLink to='/instractor'>Instructors</NavLink></li>
         <li className="text-xl"><Link to='/class'>Classes</Link></li>
         {user && <li className="text-xl"><Link to='/dash'>
         <button className="btn btn-sm">
