@@ -4,18 +4,24 @@ import { AuthContext } from "../Auth/AuthProvider";
 import { Link } from "react-router-dom";
 import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
 import Swal from "sweetalert2";
-import axios from "axios";
+import useAxiosSecure from "../Hooks/useAxiosSecure";
+const img_hosting_token = import.meta.env.VITE_Image_Upload_Token;
 
 
 const Register = () => {
+    const [axiosSecure] = useAxiosSecure()
     const [show, setShow] = useState(false);
     const [error, setError] = useState(' ');
     const [success, setSuccess] = useState(' ')
     const { register, handleSubmit, formState: { errors }, reset } = useForm();
     const { signUp } = useContext(AuthContext);
+    const img_hosting_url = `https://api.imgbb.com/1/upload?key=${img_hosting_token}`
 
 
     const onSubmit = data => {
+        const formData = new FormData();
+        formData.append('image', data.photo[0])
+
         console.log(data)
         setSuccess()
         setError()
@@ -37,13 +43,32 @@ const Register = () => {
                 setError(err.message)
             })
 
-          axios.post('http://localhost:5000/users', data)
-          .then(res =>{
-            console.log(res);
-          })
-          .catch(err=>{
-            console.log(err.message);
-          })
+            fetch(img_hosting_url, {
+                method: 'POST',
+                body: formData
+            }).then(res => res.json())
+                .then(imgResponse => {
+                    console.log(imgResponse);
+                    if (imgResponse.success) {
+                        const imgUrl = imgResponse.data.display_url;
+                        const { name, email } = data;
+                        const newItem = { name , email, photo: imgUrl }
+                        console.log(newItem);
+    
+                        axiosSecure.post('/users', newItem)
+                            .then(data => {
+                                console.log(data);
+                            })
+                    }
+                })
+
+        //   axios.post('http://localhost:5000/users', data)
+        //   .then(res =>{
+        //     console.log(res);
+        //   })
+        //   .catch(err=>{
+        //     console.log(err.message);
+        //   })
     };
     return (
         <div className="pt-20">
@@ -98,12 +123,9 @@ const Register = () => {
                                 <h3 className="text-red-600">{error}</h3>
                                 <h3 className="text-green-600">{success}</h3>
                             </div>
-                            <div className="form-control">
-                                <label className="label">
-                                    <span className="label-text">Photo_Url</span>
-                                </label>
-                                <input type="text" {...register("img",)} placeholder="photo" className="input input-bordered" />
-                            </div>
+                            <div className="mt-5">
+                    <input type="file" {...register("photo", { required: true })} className="file-input file-input-bordered file-input-warning w-full max-w-xs" />
+                </div>
                             <div className="form-control mt-6">
                                 <button className="btn btn-primary">Register</button>
                             </div>
