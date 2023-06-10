@@ -30,6 +30,8 @@ const MyClass = () => {
                                 <th>Email</th>
                                 <th>price</th>
                                 <th>Avilable seat</th>
+                                <th>Total Enrol</th>
+                                <th>Update</th>
                             </tr>
                         </thead>
                         <tbody>

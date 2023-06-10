@@ -29,9 +29,10 @@ const SubClasses = ({ main }) => {
               })
         }
         else {
-            axiosSecure.post('/selectedClass', data)
+            const alldata = {name:data.name, email: user?.email, details:data.details,price:data.price, img:data.img, instructor_name:data.instructor_name, ins_email:data.email  }
+            axiosSecure.post('/selectedClass', alldata)
                 .then(data => {
-                    console.log(data.data);
+                    console.log(data);
                     if(data.insertedId == data._id){
                         Swal.fire({
                             position: 'top',
@@ -50,7 +51,7 @@ const SubClasses = ({ main }) => {
                 <p className="text-xl font-semibold">{main.name}</p>
                 <h4>Instractor: <b>{main.instructor_name}</b></h4>
                 <img className=" md:w-2/4 mx-auto rounded-xl" src={main.img} alt="" />
-                <h3>{main.description}</h3>
+                <h3>{main.details}</h3>
                 <p>price: ${main.price}</p>
                 <p>Available seat : {main.available_seats}</p>
 

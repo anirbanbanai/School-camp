@@ -1,3 +1,4 @@
+import { GrUpdate } from "react-icons/gr";
 
 
 const SubMyClassjsx = ({ m, i }) => {
@@ -13,6 +14,10 @@ const SubMyClassjsx = ({ m, i }) => {
                 <td>{m.email}</td>
                 <td>{m.price}</td>
                 <td>{m.available_seats}</td>
+                <td>55</td>
+                <td>
+                    <button className="btn btn-success btn-outline"><GrUpdate/></button>
+                </td>
             </tr>
            </>
        
