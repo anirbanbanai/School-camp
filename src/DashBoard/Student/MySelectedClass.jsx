@@ -1,46 +1,37 @@
-import { useEffect, useState } from "react";
-import useAxiosSecure from "../../Hooks/useAxiosSecure";
-import useAuth from "../../Hooks/useAuth";
+
 import SubMySelec from "./SubMySelec";
+import useSelectedmyClasses from "../../Hooks/useSelectedClass";
 
 const MySelectedClass = () => {
-    const[data, setData] = useState([]);
-    const {user} = useAuth()
-    const [axiosSecure] = useAxiosSecure()
-    useEffect(()=>{
-     axiosSecure.get(`/selectedmyClass?email=${user?.email}`)
-     .then(data=>{
-        console.log(data);
-        setData(data.data)
-     })
-    },[])
-    console.log(data);
+    const [myclasses, ,refetch] = useSelectedmyClasses();
+    console.log(myclasses);
     return (
-        <div>
-            <h3>MySlected Class</h3>
+        <div className="m-5">
+            <h3 className="text-center text-3xl font-semibold">MySlected Class</h3>
             <div>
-            <div className="overflow-x-auto">
-  <table className="table">
-    {/* head */}
-    <thead>
-      <tr>
-        <th></th>
-        <th>Class name</th>
-        <th>Image</th>
-        <th>Instructor</th>
-        <th>Price</th>
-        <th>delete</th>
-      </tr>
-    </thead>
-    <tbody>
-      {
-      data?.map((m,i)=><SubMySelec key={m._id} m={m} i={i}></SubMySelec>)
-      }
-      
-     
-    </tbody>
-  </table>
-</div>
+                <div className="overflow-x-auto">
+                    <table className="table">
+                        {/* head */}
+                        <thead>
+                            <tr className="text-sm">
+                                <th></th>
+                                <th>Class name</th>
+                                <th>Image</th>
+                                <th>Instructor</th>
+                                <th>Price</th>
+                                <th>Enrol</th>
+                                <th>delete</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {
+                                myclasses?.map((m, i) => <SubMySelec key={m._id} m={m} refetch={refetch} i={i}></SubMySelec>)
+                            }
+
+
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     );

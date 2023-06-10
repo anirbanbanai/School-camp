@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../Auth/AuthProvider";
 
 const axiosSecure = axios.create({
-    baseURL: "https://assign-12-server-tan.vercel.app",
+    baseURL: "http://localhost:5000",
     // headers:
     //     { "Authorization": `Bearer ${localStorage.getItem("access-token")}` }
 })
