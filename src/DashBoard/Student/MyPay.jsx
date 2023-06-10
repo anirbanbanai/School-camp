@@ -1,7 +1,7 @@
 
 const MyPay = () => {
     return (
-        <div>
+        <div className="m-10">
             <h4>My Psay</h4>
         </div>
     );

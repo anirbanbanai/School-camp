@@ -1,6 +1,7 @@
 
 import SubMySelec from "./SubMySelec";
 import useSelectedmyClasses from "../../Hooks/useSelectedClass";
+import { Link } from "react-router-dom";
 
 const MySelectedClass = () => {
     const [myclasses, ,refetch] = useSelectedmyClasses();
@@ -8,6 +9,9 @@ const MySelectedClass = () => {
     return (
         <div className="m-5">
             <h3 className="text-center text-3xl font-semibold">MySlected Class</h3>
+            <div className="flex justify-end">
+            <Link className=" btn btn-warning" to='/dash/mypay'>Pay</Link>
+            </div>
             <div>
                 <div className="overflow-x-auto">
                     <table className="table">

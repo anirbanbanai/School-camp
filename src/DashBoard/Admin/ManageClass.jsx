@@ -4,7 +4,7 @@ import useClasses from "../../Hooks/useClasses";
 // import SubManageClass from "./SubManageClass";
 
 const ManageClass = () => {
-    const [classes] = useClasses();
+    const [classes, ,refetch] = useClasses();
     console.log(classes);
  
     return (
@@ -21,15 +21,16 @@ const ManageClass = () => {
                                 <td className="text-sm">Instructor </td>
                                 <td className="text-sm">Available seat</td>
                                 <td className="text-sm">Price</td>
-                                <td className="text-sm">Status</td>
-                                <td className="text-sm">Action</td>
+                                <td className="text-sm">Aprove</td>
+                                <td className="text-sm">Deny</td>
+                                <td className="text-sm">Fedback</td>
                                 {/* <th className="text-sm">Deny</th>
                                 <th className="text-sm">Send Feedback</th> */}
                             </tr>
                         </thead>
                         <tbody>
                             {
-                                classes?.map((m, index) => <SubManageClass key={m._id} main={m} i={index}></SubManageClass>)
+                                classes?.map((m, index) => <SubManageClass key={m._id} main={m} i={index} refetch={refetch}></SubManageClass>)
                             }
 
                         </tbody>

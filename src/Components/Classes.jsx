@@ -1,8 +1,8 @@
 import SubClasses from "./SubClasses";
-import useClasses from "../Hooks/useClasses";
+import useAproveClasses from "../Hooks/useAproveClass";
 
 const Classes = () => {
-    const [classes] = useClasses();
+    const [classes] = useAproveClasses()
     return (
         <div className="pt-20">
             <h4 className="text-4xl font-semibold text-center">All class </h4>
