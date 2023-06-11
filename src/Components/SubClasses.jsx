@@ -4,12 +4,16 @@ import Swal from "sweetalert2";
 import useAuth from "../Hooks/useAuth";
 import useAxiosSecure from "../Hooks/useAxiosSecure";
 import { useNavigate } from "react-router-dom";
+import useAdmin from "../Hooks/useAdmin";
+import useInstractor from "../Hooks/useInstractor";
 
 const SubClasses = ({ main }) => {
     const navigate = useNavigate()
     const { user } = useAuth()
     const [axiosSecure] = useAxiosSecure()
-
+    const [isAdmin] = useAdmin();
+    const [instractor] = useInstractor()
+console.log(isAdmin, instractor);
     const handleSelected = (data) => {
         delete data._id
         // console.log(data);
@@ -55,10 +59,15 @@ const SubClasses = ({ main }) => {
                 <p>price: ${main.price}</p>
                 <p>Available seat : {main.available_seats}</p>
 
-                {/* bg-blue-500 text-white font-bold py-2 px-4 rounded opacity-50 cursor-not-allowed */}
-
                 <div >
-                    <button onClick={() => handleSelected(main)} className="btn btn-secondary ">Selecet</button>
+                    {
+                        isAdmin && <></> 
+                        ||
+                          instractor &&
+                           <> </> 
+                           ||
+                           <button onClick={() => handleSelected(main)} className="btn btn-secondary ">Selecet</button> 
+                    }
                 </div>
 
             </div>

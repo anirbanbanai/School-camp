@@ -1,5 +1,6 @@
 import { RiDeleteBin5Line } from "react-icons/ri";
 import { CgEnter } from 'react-icons/cg';
+import { Link } from "react-router-dom";
 // import useAxiosSecure from "../../Hooks/useAxiosSecure";
 // import Swal from "sweetalert2";
 // import axios from "axios";
@@ -43,7 +44,9 @@ const SubMySelec = ({ m, i }) => {
                     ${m.price}
                 </td>
                 <td>
-                  {m.role === 'enrol'? <h3 className="text-green-500 text-xl font-bold">Enrolled</h3> :  <button  className="btn btn-warning btn-outline"><CgEnter className="text-3xl" /></button>}
+                  {m.role === 'enrol'? <h3 className="text-green-500 text-xl font-bold">Enrolled</h3> :  <Link to='/dash/mypay'>
+                  <button  className="btn btn-warning btn-outline"><CgEnter className="text-3xl" /></button>
+                  </Link>}
                 </td>
                 <td>
                     <button className="btn hover:bg-red-400  btn-outline hover:text-black "><RiDeleteBin5Line className="text-3xl" /></button>

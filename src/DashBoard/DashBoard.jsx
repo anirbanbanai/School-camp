@@ -1,5 +1,5 @@
-import { Link, Outlet } from "react-router-dom";
-import { AiOutlineMenuUnfold } from 'react-icons/ai';
+import { NavLink, Outlet } from "react-router-dom";
+// import { AiOutlineMenuUnfold } from 'react-icons/ai';
 // import { useContext, useEffect, useState } from "react";
 // import axios from "axios";
 // import { AuthContext } from "../Auth/AuthProvider";
@@ -24,68 +24,53 @@ const DashBoard = () => {
     }
     return (
         <div>
-            <div className="drawer lg:drawer-open">
-                <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
-                <div className="drawer-content  justify-center">
-                    {/* Page content here */}
-                    <label htmlFor="my-drawer-2" className="btn btn-success drawer-button lg:hidden text-2xl"><AiOutlineMenuUnfold /> </label>
+            <h3 className="text-4xl font-semibold text-center mb-5 mt-5">This is dashboard</h3>
+
+            <div className="flex w-full">
+                <div className="flex justify-center  flex-grow card bg-yellow-300 rounded-box place-items-center p-3">
+
+                    {
+                        isAdmin && <>
+
+                            <NavLink className="text-2xl mr-5 mb-2 font-semibold" to='/dash/users'>Manage User</NavLink>
+                            <NavLink className="text-2xl mr-5 font-semibold" to='/dash/manageClass'>Manage Clases</NavLink>
+                        </>
+
+                        ||
+
+                        isInsloading && <>
+
+                            <NavLink to='/dash/myclass' className="text-xl font-semibold mr-5">My Class</NavLink>
+                            <NavLink to='/dash/addclass' className="text-xl font-semibold mr-5">Add Class</NavLink>
+                        </>
+                        ||
+                        <>
+
+                            <NavLink to='/dash/myselectedclass' className="text-xl mr-5 font-semibold">My Seleted Classes</NavLink>
+                            <NavLink to='/dash/myenrolclass' className="text-xl mr-5 font-semibold">My Enrol Classes</NavLink>
+                        </>
+                    }
+
+                </div>
+                <div className="divider divider-horizontal">And</div>
+                <div className="flex flex-grow card bg-base-300 rounded-box place-items-center">
+                    <NavLink to='/' className="text-xl font-semibold">Home</NavLink>
+                    <NavLink className="text-xl font-semibold" to='/instractor'>Instructors</NavLink>
+                    <NavLink className="text-xl font-semibold" to='/class'>Classes</NavLink>
+                </div>
+            </div>
+            <div>
+
+
+                <div>
                     <Outlet></Outlet>
                 </div>
-                <div className="drawer-side">
-                    <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
-                    <ul className="menu p-4 w-80 h-full bg-yellow-300 text-base-content">
-
-                        {
-                            isAdmin && <>
-                                <li><Link to='/dash/AdminHome' className="text-xl font-semibold">Admin Home </Link></li>
-                                <li><Link className="text-xl font-semibold" to='/dash/users'>Manage User</Link></li>
-                                <li><Link className="text-xl font-semibold" to='/dash/manageClass'>Manage Clases</Link></li>
-                            </>
-                            
-                            ||
-                            
-                            isInsloading && <>
-                                <li><Link to='/dash/instractorHome' className="text-xl font-semibold">Instractor Home</Link></li>
-                                <li><Link to='/dash/myclass' className="text-xl font-semibold">My Class</Link></li>
-                                <li><Link to='/dash/addclass' className="text-xl font-semibold">Add Class</Link></li>
-                            </>
-                            ||
-                            <>
-                                <li> <Link className="text-xl font-semibold">Student HOme</Link></li>
-                                <li>  <Link to='/dash/myselectedclass' className="text-xl font-semibold">My Seleted Classes</Link></li>
-                                <li>   <Link to='/dash/myenrolclass' className="text-xl font-semibold">My Enrol Classes</Link></li>
-                            </>
-                        }
-
-                        {/* 
-                        {isAdmin && <>
-                            <li><Link to='/dash/AdminHome' className="text-xl font-semibold">Admin Home </Link></li>
-                            <li><Link className="text-xl font-semibold" to='/dash/users'>Manage User</Link></li>
-                            <li><Link className="text-xl font-semibold" to='/dash/manageClass'>Manage Clases</Link></li>
-                        </>}
 
 
-                        {
-                            isInsloading && <>
-                                <li><Link to='/dash/instractorHome' className="text-xl font-semibold">Instractor Home</Link></li>
-                                <li><Link to='/dash/myclass' className="text-xl font-semibold">My Class</Link></li>
-                                <li><Link to='/dash/addclass' className="text-xl font-semibold">Add Class</Link></li>
-                            </>
-                        } */}
-
-                        {/* <li> <Link className="text-xl font-semibold">Student HOme</Link></li>
-                        <li>  <Link to='/dash/myselectedclass' className="text-xl font-semibold">My Seleted Classes</Link></li>
-                        <li>   <Link to='/dash/myenrolclass' className="text-xl font-semibold">My Enrol Classes</Link></li> */}
+                <div className="divider divide-x-8"></div>
 
 
-                        <div className="divider divide-x-8"></div>
 
-                        <li><Link to='/' className="text-xl font-semibold">Home</Link></li>
-                        <li className="text-xl font-semibold"><Link to='/instractor'>Instructors</Link></li>
-                        <li className="text-xl"><Link className="text-xl font-semibold" to='/class'>Classes</Link></li>
-                    </ul>
-
-                </div>
             </div>
         </div>
     );

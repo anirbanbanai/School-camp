@@ -8,7 +8,7 @@ const MyClass = () => {
    
     return (
         <div>
-            <h4>My Class</h4>
+            <h4 className="text-3xl font-semibold text-center">My Class</h4>
             <div>
                 <div className="overflow-x-auto">
                     <table className="table">

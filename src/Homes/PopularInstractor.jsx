@@ -10,16 +10,20 @@ const PopularInstractor = () => {
             setData(data)
         })
     },[])
-   
+   console.log(data);
     return (
         <div>
             <h3 className="text-center text-3xl font-semibold">Popular Instractor</h3>
-            <div className="grid grid-cols-3">
+            <div className="grid md:grid-cols-2 lg:grid-cols-3">
                 {
-                    data.map(m=><div className="border-2 m-5 p-4" key={m._id}>
+                    data.slice(0,6).map(m=><div className="border-2 m-5 p-4" key={m._id}>
 
-                        <h2>{m.name}</h2>
-                        <h3>{m.email}</h3>
+                        <h2 className="text-2xl text-center font-semibold">{m.name}</h2>
+
+                        <img  className='h-[250px] mx-auto' src={m.photo} alt="" />
+                       <div className="flex justify-center">
+                       <button className="btn btn-outline btn-warning mx-auto">Details</button>
+                       </div>
                     </div>)
                 }
             </div>
