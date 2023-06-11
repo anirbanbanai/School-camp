@@ -16,7 +16,7 @@ const MyPay = () => {
         <div className="m-10">
             <h4 className="text-3xl font-semibold text-center">My Pay</h4>
             <Elements stripe={stripePromise}> 
-            <CheakOutForm price={price}></CheakOutForm>
+            <CheakOutForm price={price} myclasses={myclasses}></CheakOutForm>
             </Elements>
         </div>
     );

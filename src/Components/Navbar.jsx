@@ -1,8 +1,12 @@
 import { useContext } from "react";
 import { Link, NavLink} from "react-router-dom";
 import { AuthContext } from "../Auth/AuthProvider";
+import useAdmin from "../Hooks/useAdmin";
+import useInstractor from "../Hooks/useInstractor";
 
 const Navbar = () => {
+    const [isAdmin] = useAdmin();
+    const [instractor] = useInstractor();
     const { user, logOut } = useContext(AuthContext);
     console.log(user);
     const handleOut = () => {
@@ -14,7 +18,7 @@ const Navbar = () => {
 
         <li className="text-xl"><NavLink to='/instractor'>Instructors</NavLink></li>
         <li className="text-xl"><NavLink to='/class'>Classes</NavLink></li>
-        {user && <li className="text-xl"><Link to='/dash'>
+        {user && <li className="text-xl"><Link to={isAdmin && '/dash/manageClass' || instractor && '/dash/myclass' || '/dash/myselectedclass'}>
             <button className="btn btn-sm">
 
                 <div className="badge badge-secondary">DashBoard</div>
