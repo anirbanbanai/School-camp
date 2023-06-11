@@ -6,11 +6,11 @@ import Swal from "sweetalert2";
 const img_hosting_token = import.meta.env.VITE_Image_Upload_Token;
 
 const AddClass = () => {
-    console.log(img_hosting_token);
+    // console.log(img_hosting_token);
     const img_hosting_url = `https://api.imgbb.com/1/upload?key=${img_hosting_token}`
     const { user } = useAuth();
     const [axiosSecure] = useAxiosSecure()
-    console.log(user);
+    // console.log(user);
     const { register, handleSubmit, reset } = useForm();
 
     const onSubmit = data => {

@@ -3,7 +3,7 @@ import useUsers from "../Hooks/useUsers";
 
 const Users = () => {
     const [users, ,refetch] = useUsers();
-    console.log(users);
+    // console.log(users);
    
     return (
         <div className="">

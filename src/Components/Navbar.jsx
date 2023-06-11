@@ -8,7 +8,7 @@ const Navbar = () => {
     const [isAdmin] = useAdmin();
     const [instractor] = useInstractor();
     const { user, logOut } = useContext(AuthContext);
-    console.log(user);
+    // console.log(user);
     const handleOut = () => {
         logOut()
         

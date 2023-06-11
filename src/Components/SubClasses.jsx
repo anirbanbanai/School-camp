@@ -13,7 +13,7 @@ const SubClasses = ({ main }) => {
     const [axiosSecure] = useAxiosSecure()
     const [isAdmin] = useAdmin();
     const [instractor] = useInstractor()
-console.log(isAdmin, instractor);
+// console.log(isAdmin, instractor);
     const handleSelected = (data) => {
         delete data._id
         // console.log(data);

@@ -8,7 +8,7 @@ const useAproveClasses = () => {
             return res.json()
         }
     });
-console.log(classes);
+// console.log(classes);
     return [classes, loading, refetch]
 };
 

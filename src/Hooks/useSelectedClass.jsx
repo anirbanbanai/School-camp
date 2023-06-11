@@ -10,7 +10,7 @@ const useSelectedmyClasses = () => {
             return res.json()
         }
     });
-console.log(myclasses);
+// console.log(myclasses);
     return [myclasses, loading, refetch]
 };
 

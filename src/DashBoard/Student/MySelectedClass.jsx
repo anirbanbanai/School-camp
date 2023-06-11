@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 const MySelectedClass = () => {
     const [myclasses, ,refetch] = useSelectedmyClasses();
     const total = myclasses.reduce((sum, item)=> sum + item.price,0);
-    console.log(myclasses);
+    // console.log(myclasses);
     return (
         <div className="m-5">
             <h3 className="text-center text-3xl font-semibold">MySlected Class</h3>

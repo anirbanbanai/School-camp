@@ -4,7 +4,7 @@ import useMyClasses from "../../Hooks/useMyClasses";
 
 const MyClass = () => {
     const [myclasses, refetch] = useMyClasses();
-    console.log(myclasses);
+    // console.log(myclasses);
    
     return (
         <div>

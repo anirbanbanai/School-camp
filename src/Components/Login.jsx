@@ -18,7 +18,7 @@ const Login = () => {
   const { register, handleSubmit, reset } = useForm();
   const onSubmit = data => {
     setError()
-    console.log(data);
+    // console.log(data);
 
     loginUser(data.email, data.password)
       .then(result => {

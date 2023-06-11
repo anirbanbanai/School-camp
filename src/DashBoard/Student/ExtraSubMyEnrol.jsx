@@ -1,7 +1,7 @@
 
 
 const ExtraSubMyEnrol = ({ m }) => {
-    console.log(m);
+    // console.log(m);
     return (
 
         <>
@@ -12,6 +12,7 @@ const ExtraSubMyEnrol = ({ m }) => {
                 </td>
                 <td>{m.instructor_name}</td>
             </tr>
+            
         </>
         // <div>
         //     <p>{m.name}</p>

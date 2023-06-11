@@ -25,7 +25,7 @@ const Register = () => {
         const formData = new FormData();
         formData.append('image', data.photo[0])
 
-        console.log(data)
+        // console.log(data)
         setSuccess()
         setError()
 
@@ -68,7 +68,7 @@ const Register = () => {
 
             })
             .catch(err => {
-                console.log(err.message);
+                // console.log(err.message);
                 setError(err.message)
             })
 

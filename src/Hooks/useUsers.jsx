@@ -9,7 +9,7 @@ const useUsers = () => {
             return res.json()
         }
     });
-console.log(users);
+// console.log(users);
     return [users, loading, refetch]
    
 };

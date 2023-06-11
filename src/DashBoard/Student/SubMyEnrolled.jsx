@@ -1,7 +1,7 @@
 import ExtraSubMyEnrol from "./ExtraSubMyEnrol";
 
 const SubMyEnrolled = ({m}) => {
-    console.log(m);
+    // console.log(m);
     return (
 
         <>
@@ -9,14 +9,7 @@ const SubMyEnrolled = ({m}) => {
             m?.map((m)=><ExtraSubMyEnrol key={m._id}  m={m}></ExtraSubMyEnrol>)
         }
         </>
-        // <div>
-        //     <div>
-           
-        //     </div>
-        //    {/* {
-        //     m?.map(m=><ExtraSubMyEnrol key={m._id} m={m}></ExtraSubMyEnrol>)
-        //    } */}
-        // </div>
+   
     );
 };
 

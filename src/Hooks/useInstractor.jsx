@@ -5,7 +5,7 @@ import useAxiosSecure from "./useAxiosSecure";
 const useInstractor = () => {
     const {user} = useAuth();
     const [axiosSecure] = useAxiosSecure()
-   console.log(user?.email);
+//    console.log(user?.email);
     const {data: instractor =false, isLoading: isInsloading, refetch} = useQuery({
         queryKey:['instractor'],
         enabled: !!user?.email && !!localStorage.getItem("access-token"),
@@ -16,7 +16,7 @@ const useInstractor = () => {
             return res.data.instractor;
         }
     });
-console.log(instractor);
+// console.log(instractor);
     return [instractor, isInsloading, refetch]
 };
 

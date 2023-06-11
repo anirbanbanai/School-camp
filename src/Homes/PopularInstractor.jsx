@@ -10,7 +10,7 @@ const PopularInstractor = () => {
             setData(data)
         })
     },[])
-   console.log(data);
+//    console.log(data);
     return (
         <div>
             <h3 className="text-center text-3xl font-semibold">Popular Instractor</h3>

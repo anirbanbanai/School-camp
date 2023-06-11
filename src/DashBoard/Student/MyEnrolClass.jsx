@@ -10,7 +10,7 @@ const MyEnrolClass = () => {
     useEffect(() => {
         axiosSecure.get(`/enrolClassE?email=${user?.email}`)
             .then(data => {
-                console.log(data);
+                // console.log(data);
                 setData(data.data)
             })
     }, [axiosSecure, user?.email])
