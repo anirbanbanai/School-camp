@@ -49,17 +49,17 @@ const SubUsers = ({ m, i ,refetch}) => {
                 .then(data => {
                     console.log(data);
                     axiosSecure.post('/ins', id)
-                    // .then(data=>{
-                    //     console.log(data);
-                    //     if(data.data.insertedId){
-                    //         Swal.fire(
-                    //             'Instructor now!',
-                    //             'You make Instructor this user!',
-                    //             'success'
-                    //           )
-                    //     }
-                    // })
-                    // refetch()
+                    .then(data=>{
+                        console.log(data);
+                        if(data.data.insertedId){
+                            Swal.fire(
+                                'Instructor now!',
+                                'You make Instructor this user!',
+                                'success'
+                              )
+                        }
+                    })
+                    refetch()
                 });
             }
           })
