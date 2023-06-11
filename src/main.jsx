@@ -29,6 +29,7 @@ import MyClass from './DashBoard/Instractor/MyClass';
 import AddClass from './DashBoard/Instractor/AddClass';
 import ManageClass from './DashBoard/Admin/ManageClass';
 import AdminHome from './DashBoard/Admin/AdminHome';
+import ErrorPage from './Components/ErrorPage';
 const queryClient = new QueryClient()
 
 const router = createBrowserRouter([
@@ -113,6 +114,10 @@ const router = createBrowserRouter([
         element:<AddClass></AddClass>
       }
     ]
+  },
+  {
+    path:'*',
+    element:<ErrorPage></ErrorPage>
   }
 ]);
 
