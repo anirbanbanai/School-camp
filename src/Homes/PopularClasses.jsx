@@ -24,7 +24,7 @@ const PopularClasses = () => {
                 clickable: true,
               }}
                 modules={[Pagination]}
-                className="mySwiper w-3/4"
+                className="mySwiper w-3/4 mx-auto"
             >
                 {
                     classes.slice(0,6).map(m => <SwiperSlide key={m._id} m={m}>

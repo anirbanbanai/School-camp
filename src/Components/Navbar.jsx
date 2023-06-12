@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { Link, NavLink} from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../Auth/AuthProvider";
 import img from '../assets/img/43351.jpg'
 
@@ -8,19 +8,26 @@ const Navbar = () => {
     // console.log(user);
     const handleOut = () => {
         logOut()
-        
+
     }
     const navItems = <>
         <li className="text-xl"><NavLink to='/'>Home</NavLink></li>
         <li className="text-xl"><NavLink to='/instractor'>Instructors</NavLink></li>
         <li className="text-xl"><NavLink to='/class'>Classes</NavLink></li>
-        
+
         {user && <li className="text-xl"><Link to='/dash'>
             <button className="btn btn-sm">
 
                 <div className="badge badge-secondary">DashBoard</div>
             </button>
         </Link></li>}
+
+        {!user && <Link className=" sm:hidden " to='/login'>
+            <button className="btn btn-warning btn-outline">Login</button>
+        </Link>}
+        {user && <Link onClick={handleOut} className=" sm:hidden " to='/login'>
+            <button className="btn btn-warning btn-outline">LogOut</button>
+        </Link>}
     </>
     return (
         <div className="fixed z-10 w-full opacity-90">
@@ -36,8 +43,9 @@ const Navbar = () => {
                     </div>
                     <div className="flex items-center">
                         <img className="w-[120px] ml-6" src={img} alt="" />
+                        <img className="w-[80px] rounded-full sm:hidden" src={user?.photoURL} alt="" />
                         <div className="hidden md:flex">
-                        <h3 className="text-4xl font-bold ">Spor<span className="text-blue-600">ts</span><span className="text-yellow-500">Ca</span><span className="text-red-400">mp</span></h3>
+                            <h3 className="text-4xl font-bold ">Spor<span className="text-blue-600">ts</span><span className="text-yellow-500">Ca</span><span className="text-red-400">mp</span></h3>
                         </div>
                     </div>
                 </div>
@@ -47,12 +55,12 @@ const Navbar = () => {
                     </ul>
                 </div>
                 <div className="navbar-end">
-                    <img className="w-[80px] rounded-full" src={user?.photoURL} alt="" />
-                    {!user && <Link to='/login'>
+                    <img className="w-[80px] rounded-full hidden sm:flex" src={user?.photoURL} alt="" />
+                    {!user && <Link className="hidden sm:flex" to='/login'>
                         <button className="btn btn-warning btn-outline">Login</button>
-                    </Link>} 
-                    
-                    {user&& <button onClick={handleOut} className="btn btn-warning ">LOgOut</button>
+                    </Link>}
+
+                    {user && <button onClick={handleOut} className="btn btn-warning hidden sm:flex">LOgOut</button>
                     }
                     <Link className="hidden md:flex" to='/register'>
                         <button className="btn btn-primary btn-outline">Register</button>

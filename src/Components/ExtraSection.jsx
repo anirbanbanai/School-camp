@@ -8,7 +8,7 @@ const ExtraSection = () => {
         <div>
            <h5 className='text-5xl font-bold text-center'>Our Purpose</h5>
          <div className="m-5 grid md:grid-cols-3">
-            <div className='col-span-2'>
+            <div className='md:col-span-2'>
                 <img src={group} alt="" />
                 <div className='m-5'>
                     <h3 className="text-4xl font-bold ">Make learning fun  and make the lessons learned last</h3>
@@ -23,7 +23,7 @@ const ExtraSection = () => {
                 </div>
             </div>
             <div>
-                <form className='bg-slate-300 p-5 m-4'>
+                <form className='bg-slate-300 p-5 m-4 sm:w-full'>
                     <h3 className='text-3xl font-bold'>Request a Quate</h3>
                     <div className="card-body">
                         <div className="form-control">

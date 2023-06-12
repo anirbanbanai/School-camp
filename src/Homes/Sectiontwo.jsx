@@ -23,19 +23,19 @@ export default function Sectiontwo() {
         }}
         navigation={true}
         modules={[Pagination, Navigation]}
-        className="mySwiper"
+        className="mySwiper mx-auto"
       >
         {/* <SwiperSlide>
             <img className="h-[400px]" src={pic1} alt="" />
         </SwiperSlide> */}
         <SwiperSlide>
-            <img className="h-[600px] w-full" src={pic2} alt="" />
+            <img className="h-[600px] w-full mx-auto" src={pic2} alt="" />
         </SwiperSlide>
         <SwiperSlide>
-            <img className="h-[600px] w-full" src={pic3} alt="" />
+            <img className="h-[600px] w-full mx-auto" src={pic3} alt="" />
         </SwiperSlide>
         <SwiperSlide>
-            <img className="h-[600px] w-full" src={pic4} alt="" />
+            <img className="h-[600px] w-full mx-auto" src={pic4} alt="" />
         </SwiperSlide>
         
       </Swiper>

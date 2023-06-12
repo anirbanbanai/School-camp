@@ -16,7 +16,7 @@ const PopularInstractor = () => {
             <h3 className="text-center text-3xl font-semibold">Popular Instractor</h3>
             <div className="grid md:grid-cols-2 lg:grid-cols-3">
                 {
-                    data.slice(0,6).map(m=><div className="border-2 m-5 p-4" key={m._id}>
+                    data.slice(0,6).map(m=><div className="border-2 m-5 p-4 mx-auto" key={m._id}>
 
                         <h2 className="text-2xl text-center font-semibold">{m.name}</h2>
 
