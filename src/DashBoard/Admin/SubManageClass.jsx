@@ -27,10 +27,8 @@ const SubManageClass = ({ main, i, refetch }) => {
                     .then(res => {
                         console.log(res);
                         axiosSecure.post('/aproveClass', data)
-                            .then(data => {
-                                console.log(data);
-                                refetch()
-                            })
+                            
+                            refetch()
                     })
                 Swal.fire(
                     'Aprtoved!',
@@ -42,11 +40,9 @@ const SubManageClass = ({ main, i, refetch }) => {
     }
 
     const handleDeny = (main) => {
-        console.log(main);
+        // console.log(main);
         axios.patch(`https://assign-12-server-tan.vercel.app/aproveClass/deny/${main._id}`)
-        .then(res =>{
-            console.log(res.data);
-        })
+       
     }
 
     // const handleDelete = (data) => {

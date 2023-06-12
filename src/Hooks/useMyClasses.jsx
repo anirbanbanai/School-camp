@@ -13,6 +13,7 @@ const useMyClasses = () => {
             // const res = await fetch(`https://assign-12-server-tan.vercel.app/classesE?email=${user?.email}`)
             // return res.json()
             const res = await axiosSecure.get(`/classesE?email=${user?.email}`)
+            // console.log(res.data);
             return res.data
         }
     });

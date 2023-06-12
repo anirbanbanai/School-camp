@@ -11,12 +11,12 @@ const Instractor = () => {
     useEffect(() => {
         axiosSecure.get('/ins')
             .then(data => {
-                console.log(data.data);
+                // console.log(data.data);
                 setData(data.data)
             })
     }, [axiosSecure])
     return (
-        <div className='pt-20 grid md:grid-cols-2 lg:grid-cols-3'>
+        <div className='pt-28 pb-5 grid md:grid-cols-2 lg:grid-cols-3'>
             {
                 data.map(m=><ExtraInstrucor key={m._id} m={m}></ExtraInstrucor>)
             }

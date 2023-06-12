@@ -3,7 +3,7 @@ import { RiFeedbackLine } from "react-icons/ri";
 
 
 const SubMyClassjsx = ({ m, i }) => {
-    console.log(m);
+    // console.log(m);
     return (
 
         <>

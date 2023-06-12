@@ -5,7 +5,7 @@ import { Fade} from 'react-awesome-reveal';
 const ExtraInstrucor = ({ m }) => {
   
     return (
-        <div>
+        <div className='border-4 p-2 m-2'>
             <Fade cascade damping={0.2}>
             <p className='text-xl text-center font-semibold'>Name: {m.name}</p>
                 <h3 className='text-center'>Email : {m.email}</h3>

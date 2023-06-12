@@ -11,7 +11,7 @@ import useAuth from "../Hooks/useAuth";
 const DashBoard = () => {
     const { loading } = useAuth()
     const [isAdmin, loading3] = useAdmin();
-    const [isInsloading, loading2] = useInstractor()
+    const [instractor, loading2] = useInstractor()
 
 
     // console.log({loading2, loading3, loading});
@@ -38,7 +38,7 @@ const DashBoard = () => {
 
                         ||
 
-                        isInsloading && <>
+                        instractor && <>
 
                             <NavLink to='/dash/myclass' className="text-xl font-semibold mr-5 mb-2">My Class</NavLink>
                             <NavLink to='/dash/addclass' className="text-xl font-semibold mr-5">Add Class</NavLink>
