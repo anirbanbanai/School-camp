@@ -1,7 +1,10 @@
+import { Fade } from 'react-awesome-reveal';
 import group from '../assets/img/3.png'
 
 const ExtraSection = () => {
     return (
+        <>
+        <Fade cascade>
         <div>
            <h5 className='text-5xl font-bold text-center'>Our Purpose</h5>
          <div className="m-5 grid md:grid-cols-3">
@@ -56,6 +59,10 @@ const ExtraSection = () => {
         </div>
         <hr  className='border-4 border-dashed'/>
        </div>
+        </Fade>
+
+        </>
+   
     );
 };
 

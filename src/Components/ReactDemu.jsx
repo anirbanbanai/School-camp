@@ -1,37 +1,30 @@
-// import {
-//     motion,
-//     useMotionValue,
-//     useTransform,
-//   } from "framer-motion"
-  
-//   export const MyComponent = () => {
-//     const x = useMotionValue(0)
-//     const background = useTransform(
-//       x,
-//       [-100, 0, 100],
-//       ["#ff008c", "#7700ff", "rgb(230, 255, 0)"]
-//     )
-  
-//     return (
-    
-//     )
-//   }
 
-  
-//   const ReactDemu = () => {
-//     return (
-//         <div>
-//              <motion.div style={{ background }}>
-//         <motion.div
-//           drag="x"
-//           dragConstraints={{ left: 0, right: 0 }}
-//           style={{ x }}
-//         >
-//           <Icon x={x} />
-//         </motion.div>
-//       </motion.div>
-//         </div>
-//     );
-//   };
-  
-//   export default ReactDemu;
+import { keyframes } from '@emotion/react';
+import {  Reveal } from 'react-awesome-reveal';
+
+const ReactDemu = () => {
+    const customAnimation = keyframes`
+  from {
+    opacity: 0;
+    transform: translate3d(-200px, -100px, 0);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+`;
+    return (
+        <div className='pt-32'>
+            <Reveal keyframes={customAnimation}>
+              <div className='text-center'>
+              <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aut, officiis!</p>
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aut, officiis!</p>
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aut, officiis!</p>
+              </div>
+            </Reveal>
+        </div>
+    );
+};
+
+export default ReactDemu;
