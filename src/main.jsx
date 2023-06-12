@@ -20,11 +20,9 @@ import {
 
 import MySelect from './Components/MySelect';
 import PrivetRoute from './Auth/PrivetRoute';
-import StudentHome from './DashBoard/Student/StudentHome';
 import MySelectedClass from './DashBoard/Student/MySelectedClass';
 import MyEnrolClass from './DashBoard/Student/MyEnrolClass';
 import MyPay from './DashBoard/Student/MyPay';
-import InstractorHome from './DashBoard/Instractor/InstractorHome';
 import MyClass from './DashBoard/Instractor/MyClass';
 import AddClass from './DashBoard/Instractor/AddClass';
 import ManageClass from './DashBoard/Admin/ManageClass';
@@ -85,10 +83,7 @@ const router = createBrowserRouter([
         element:<AdminHome></AdminHome>
       },
       // student dashboard
-      {
-        path:'/dash/studentHome',
-        element:<StudentHome></StudentHome>
-      },
+      
       {
         path:'/dash/myselectedclass',
         element:<MySelectedClass></MySelectedClass>
@@ -107,10 +102,6 @@ const router = createBrowserRouter([
       },
       // Instractor Dashboard
 
-      {
-        path:'/dash/instractorHome',
-        element:<InstractorHome></InstractorHome>
-      },
       {
         path:'/dash/myclass',
         element:<MyClass></MyClass>

@@ -4,7 +4,7 @@ import group from '../assets/img/3.png'
 const ExtraSection = () => {
     return (
         <>
-        <Fade cascade>
+        <Fade cascade damping={0.5}>
         <div>
            <h5 className='text-5xl font-bold text-center'>Our Purpose</h5>
          <div className="m-5 grid md:grid-cols-3">

@@ -57,7 +57,7 @@ const Navbar = () => {
                     
                     {user&& <button onClick={handleOut} className="btn btn-warning ">LOgOut</button>
                     }
-                    <Link to='/register'>
+                    <Link className="hidden md:flex" to='/register'>
                         <button className="btn btn-primary btn-outline">Register</button>
                     </Link>
 

@@ -1,19 +1,22 @@
-import axios from "axios";
+
 import { useEffect, useState } from "react";
 import useAuth from "../../Hooks/useAuth";
 import { Fade } from "react-awesome-reveal";
+import useAxiosSecure from "../../Hooks/useAxiosSecure";
 
 
 const PaymentHistory = () => {
+    const [axiosSecure] = useAxiosSecure()
     const { user } = useAuth()
     const [data, setData] = useState()
     useEffect(() => {
-        axios.get(`https://assign-12-server-tan.vercel.app/paymentmyHistory?email=${user?.email}`)
+        // axios.get(`https://assign-12-server-tan.vercel.app/paymentmyHistory?email=${user?.email}`)
+        axiosSecure.get(`/paymentmyHistory?email=${user?.email}`)
             .then(data => {
-                // console.log(data);
+                console.log(data);
                 setData(data.data)
             })
-    }, [user?.email])
+    }, [axiosSecure, user?.email])
     console.log(data);
     return (
         <div className="text-center mt-10">

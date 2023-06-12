@@ -1,12 +1,14 @@
 import { useQuery } from "@tanstack/react-query";
+import useAxiosSecure from "./useAxiosSecure";
 
 
 const useUsers = () => {
+    const [axiosSecure] = useAxiosSecure()
     const {data: users = [], isLoading: loading, refetch} = useQuery({
         queryKey:['users'],
         queryFn: async()=>{
-            const res = await fetch('https://assign-12-server-tan.vercel.app/users')
-            return res.json()
+            const res = await axiosSecure.get('/users')
+            return res.data
         }
     });
 // console.log(users);
