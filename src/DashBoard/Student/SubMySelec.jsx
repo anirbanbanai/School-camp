@@ -2,34 +2,10 @@ import { RiDeleteBin5Line } from "react-icons/ri";
 import { CgEnter } from 'react-icons/cg';
 import { Link } from "react-router-dom";
 import { Fade } from "react-awesome-reveal";
-// import useAxiosSecure from "../../Hooks/useAxiosSecure";
-// import Swal from "sweetalert2";
-// import axios from "axios";
+
 
 const SubMySelec = ({ m, i }) => {
-    // const [axiosSecure] = useAxiosSecure()
-
-    // const handleEnrol = (data) => {
-    //     axios.patch(`http://localhost:5000/selectedClass/enrol/${data._id}`)
-    //         .then(res => {
-    //             console.log(res);
-    //             axiosSecure.post('/enrolClass', data)
-    //                 .then(data => {
-    //                     console.log(data);
-    //                     refetch()
-    //                     if (data.data.insertedId) {
-    //                         Swal.fire({
-    //                             position: 'top',
-    //                             icon: 'success',
-    //                             title: 'Your work has been saved',
-    //                             showConfirmButton: false,
-    //                             timer: 1500
-    //                         })
-    //                     }
-    //                 })
-    //         })
-
-    // }
+ 
     return (
         <>
             <tr>

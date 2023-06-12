@@ -23,7 +23,7 @@ const SubManageClass = ({ main, i, refetch }) => {
             confirmButtonText: 'Yes,!'
         }).then((result) => {
             if (result.isConfirmed) {
-                axios.patch(`http://localhost:5000/aproveClass/aprove/${data._id}`)
+                axios.patch(`https://assign-12-server-tan.vercel.app/aproveClass/aprove/${data._id}`)
                     .then(res => {
                         console.log(res);
                         axiosSecure.post('/aproveClass', data)
@@ -43,7 +43,7 @@ const SubManageClass = ({ main, i, refetch }) => {
 
     const handleDeny = (main) => {
         console.log(main);
-        axios.patch(`http://localhost:5000/aproveClass/deny/${main._id}`)
+        axios.patch(`https://assign-12-server-tan.vercel.app/aproveClass/deny/${main._id}`)
         .then(res =>{
             console.log(res.data);
         })
