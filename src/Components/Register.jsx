@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
 import Swal from "sweetalert2";
 import useAxiosSecure from "../Hooks/useAxiosSecure";
+import { Helmet } from "react-helmet-async";
 // import useAuth from "../Hooks/useAuth";
 const img_hosting_token = import.meta.env.VITE_Image_Upload_Token;
 
@@ -76,6 +77,7 @@ const Register = () => {
     };
     return (
         <div className="pt-20">
+            <Helmet><title>Register</title></Helmet>
             <div className="hero min-h-screen bg-base-200">
                 <div className="hero-content flex-col ">
                     <div className="text-center ">

@@ -9,8 +9,8 @@ const ExtraSection = () => {
            <h5 className='text-5xl font-bold text-center'>Our Purpose</h5>
          <div className="m-5 grid md:grid-cols-3">
             <div className='md:col-span-2'>
-                <img src={group} alt="" />
-                <div className='m-5'>
+                <img className='w-full' src={group} alt="" />
+                <div className='m-5 mx-auto'>
                     <h3 className="text-4xl font-bold ">Make learning fun  and make the lessons learned last</h3>
                     <p className="pt-5">
                         High-quality programmes of outdoor education for schools and other educational establishments have been at the heart of what we do at Essex Outdoors for over 50 ☺years. <br /><br />

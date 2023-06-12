@@ -5,6 +5,7 @@ import { FcGoogle } from "react-icons/fc";
 import { AuthContext } from "../Auth/AuthProvider";
 import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet-async";
 
 const Login = () => {
   const { loginUser, googleSignIn } = useContext(AuthContext)
@@ -21,8 +22,8 @@ const Login = () => {
     // console.log(data);
 
     loginUser(data.email, data.password)
-      .then(result => {
-        console.log(result.user);
+      .then(() => {
+        // console.log(result.user);
         reset()
 
         navigate(from, { replace: true })
@@ -48,6 +49,7 @@ const Login = () => {
   }
   return (
     <div className="pt-20">
+      <Helmet><title>Login</title></Helmet>
       <div className="hero min-h-screen bg-base-200">
         <div className="hero-content flex-col ">
           <div className="text-center ">

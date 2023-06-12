@@ -29,6 +29,7 @@ import ManageClass from './DashBoard/Admin/ManageClass';
 import AdminHome from './DashBoard/Admin/AdminHome';
 import ErrorPage from './Components/ErrorPage';
 import PaymentHistory from './DashBoard/Student/PaymentHistory';
+import { HelmetProvider } from 'react-helmet-async';
 const queryClient = new QueryClient()
 
 const router = createBrowserRouter([
@@ -62,7 +63,7 @@ const router = createBrowserRouter([
           <MySelect></MySelect>
         </PrivetRoute>
       },
-      
+
     ]
   },
   {
@@ -75,53 +76,55 @@ const router = createBrowserRouter([
         element: <Users></Users>
       },
       {
-        path:'/dash/manageClass',
-        element:<ManageClass></ManageClass>
+        path: '/dash/manageClass',
+        element: <ManageClass></ManageClass>
       },
       {
-        path:"/dash/AdminHome",
-        element:<AdminHome></AdminHome>
+        path: "/dash/AdminHome",
+        element: <AdminHome></AdminHome>
       },
       // student dashboard
-      
+
       {
-        path:'/dash/myselectedclass',
-        element:<MySelectedClass></MySelectedClass>
+        path: '/dash/myselectedclass',
+        element: <MySelectedClass></MySelectedClass>
       },
       {
-        path:"/dash/myenrolclass",
-        element:<MyEnrolClass></MyEnrolClass>
+        path: "/dash/myenrolclass",
+        element: <MyEnrolClass></MyEnrolClass>
       },
       {
-        path:"/dash/mypay",
-        element:<MyPay></MyPay>
+        path: "/dash/mypay",
+        element: <MyPay></MyPay>
       },
       {
-   path:'/dash/payHis',
-   element:<PaymentHistory></PaymentHistory>
+        path: '/dash/payHis',
+        element: <PaymentHistory></PaymentHistory>
       },
       // Instractor Dashboard
 
       {
-        path:'/dash/myclass',
-        element:<MyClass></MyClass>
+        path: '/dash/myclass',
+        element: <MyClass></MyClass>
       },
       {
-        path:"/dash/addClass",
-        element:<AddClass></AddClass>
+        path: "/dash/addClass",
+        element: <AddClass></AddClass>
       }
     ]
   },
   {
-    path:'*',
-    element:<ErrorPage></ErrorPage>
+    path: '*',
+    element: <ErrorPage></ErrorPage>
   }
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <AuthProvider>
-    <QueryClientProvider client={queryClient}>
-      <RouterProvider router={router} />
-    </QueryClientProvider>
+    <HelmetProvider>
+      <QueryClientProvider client={queryClient}>
+        <RouterProvider router={router} />
+      </QueryClientProvider>
+    </HelmetProvider>
   </AuthProvider>
 )

@@ -6,6 +6,7 @@ import { NavLink, Outlet } from "react-router-dom";
 import useAdmin from "../Hooks/useAdmin";
 import useInstractor from "../Hooks/useInstractor";
 import useAuth from "../Hooks/useAuth";
+import { Helmet } from "react-helmet-async";
 
 
 const DashBoard = () => {
@@ -24,6 +25,7 @@ const DashBoard = () => {
     }
     return (
         <div>
+            <Helmet><title>Dashboard</title></Helmet>
             <h3 className="text-4xl font-semibold text-center mb-5 mt-5">This is dashboard</h3>
 
             <div className="flex w-full">

@@ -31,7 +31,7 @@ const SubManageClass = ({ main, i, refetch }) => {
                             refetch()
                     })
                 Swal.fire(
-                    'Aprtoved!',
+                    'Approved!',
                     'This class has ben approved',
                     'success'
                 )
