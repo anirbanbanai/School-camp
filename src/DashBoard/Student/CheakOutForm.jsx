@@ -15,11 +15,13 @@ const CheakOutForm = ({ price, myclasses }) => {
     const [transactionId, setTransactionId] = useState('')
     const [proccesing, setProccessening] = useState(false)
 
+    const available_sitThere = myclasses.map(m=>m._id);
+    console.log(available_sitThere); 
+
     useEffect(() => {
         if (price) {
-            axiosSecure.post('/create-payment-intent', { price })
+            axiosSecure.post('/create-payment-intent',  {price} )
                 .then(res => {
-                    // console.log(res.data.clientSecret);
                     setClientSecret(res.data.clientSecret)
                 })
         }
@@ -81,8 +83,19 @@ const CheakOutForm = ({ price, myclasses }) => {
             }
             axiosSecure.post('/enrolClass', payment)
             .then(res=>{
-                console.log(res.data);
+                console.log(res.data.result.insertedId);
+                if(res.data.result.insertedId){
+                    axiosSecure.patch(`/Class/seatupdate/${available_sitThere}`)
+                    .then(res=>{
+                        console.log(res);
+                    })
+                }
                
+            })
+     const all = {transactionId,email: user?.email, date: new Date()}
+            axiosSecure.post('/paymentHistory' ,all)
+            .then(tr=>{
+                console.log(tr);
             })
             Swal.fire({
                 position: 'top',

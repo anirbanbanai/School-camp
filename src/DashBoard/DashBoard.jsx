@@ -40,22 +40,23 @@ const DashBoard = () => {
 
                         isInsloading && <>
 
-                            <NavLink to='/dash/myclass' className="text-xl font-semibold mr-5">My Class</NavLink>
+                            <NavLink to='/dash/myclass' className="text-xl font-semibold mr-5 mb-2">My Class</NavLink>
                             <NavLink to='/dash/addclass' className="text-xl font-semibold mr-5">Add Class</NavLink>
                         </>
                         ||
                         <>
 
-                            <NavLink to='/dash/myselectedclass' className="text-xl mr-5 font-semibold">My Seleted Classes</NavLink>
+                            <NavLink to='/dash/myselectedclass' className="text-xl mb-2 mr-5 font-semibold">My Seleted Classes</NavLink>
                             <NavLink to='/dash/myenrolclass' className="text-xl mr-5 font-semibold">My Enrol Classes</NavLink>
+                            <NavLink to='/dash/payHis' className="text-xl mr-5 font-semibold">My Payment History</NavLink>
                         </>
                     }
 
                 </div>
                 <div className="divider divider-horizontal">And</div>
                 <div className="flex flex-grow card bg-base-300 rounded-box place-items-center">
-                    <NavLink to='/' className="text-xl font-semibold">Home</NavLink>
-                    <NavLink className="text-xl font-semibold" to='/instractor'>Instructors</NavLink>
+                    <NavLink to='/' className="text-xl font-semibold mb-2">Home</NavLink>
+                    <NavLink className="text-xl font-semibold mb-2" to='/instractor'>Instructors</NavLink>
                     <NavLink className="text-xl font-semibold" to='/class'>Classes</NavLink>
                 </div>
             </div>

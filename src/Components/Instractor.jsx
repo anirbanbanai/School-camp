@@ -9,7 +9,7 @@ const Instractor = () => {
   useEffect(()=>{
    axiosSecure.get('/ins')
     .then(data=>{
-        // console.log(data.data);
+        console.log(data.data);
         setData(data.data)
     })
   },[axiosSecure])

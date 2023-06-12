@@ -30,6 +30,7 @@ import AddClass from './DashBoard/Instractor/AddClass';
 import ManageClass from './DashBoard/Admin/ManageClass';
 import AdminHome from './DashBoard/Admin/AdminHome';
 import ErrorPage from './Components/ErrorPage';
+import PaymentHistory from './DashBoard/Student/PaymentHistory';
 const queryClient = new QueryClient()
 
 const router = createBrowserRouter([
@@ -98,6 +99,10 @@ const router = createBrowserRouter([
       {
         path:"/dash/mypay",
         element:<MyPay></MyPay>
+      },
+      {
+   path:'/dash/payHis',
+   element:<PaymentHistory></PaymentHistory>
       },
       // Instractor Dashboard
 

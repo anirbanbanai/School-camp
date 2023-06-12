@@ -3,6 +3,7 @@ import useAproveClasses from "../Hooks/useAproveClass";
 
 const Classes = () => {
     const [classes] = useAproveClasses()
+    console.log(classes);
     return (
         <div className="pt-20">
             <h4 className="text-4xl font-semibold text-center">All class </h4>

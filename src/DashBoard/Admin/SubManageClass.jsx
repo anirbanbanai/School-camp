@@ -41,33 +41,41 @@ const SubManageClass = ({ main, i, refetch }) => {
         })
     }
 
-    const handleDelete = (data) => {
-        Swal.fire({
-            title: 'Are you sure?',
-            text: "You won't be able to revert this!",
-            icon: 'warning',
-            showCancelButton: true,
-            confirmButtonColor: '#3085d6',
-            cancelButtonColor: '#d33',
-            confirmButtonText: 'Yes, delete it!'
-          }).then((result) => {
-            if (result.isConfirmed) {
-                axios.delete(`http://localhost:5000/classes/${data._id}`)
-                .then((data) => {
-                    console.log(data);
-                    if (data.data.deletedCount) {
-                        Swal.fire(
-                            'Deleted!',
-                            'Your file has been deleted.',
-                            'success'
-                        );
-                        refetch()
-                    }
-                })
-            }
-          })
-      
+    const handleDeny = (main) => {
+        console.log(main);
+        axios.patch(`http://localhost:5000/aproveClass/deny/${main._id}`)
+        .then(res =>{
+            console.log(res.data);
+        })
     }
+
+    // const handleDelete = (data) => {
+    //     Swal.fire({
+    //         title: 'Are you sure?',
+    //         text: "You won't be able to revert this!",
+    //         icon: 'warning',
+    //         showCancelButton: true,
+    //         confirmButtonColor: '#3085d6',
+    //         cancelButtonColor: '#d33',
+    //         confirmButtonText: 'Yes, delete it!'
+    //       }).then((result) => {
+    //         if (result.isConfirmed) {
+    //             axios.delete(`http://localhost:5000/classes/${data._id}`)
+    //             .then((data) => {
+    //                 console.log(data);
+    //                 if (data.data.deletedCount) {
+    //                     Swal.fire(
+    //                         'Deleted!',
+    //                         'Your file has been deleted.',
+    //                         'success'
+    //                     );
+    //                     refetch()
+    //                 }
+    //             })
+    //         }
+    //       })
+
+    // }
     return (
         <>
             <tr>
@@ -86,7 +94,7 @@ const SubManageClass = ({ main, i, refetch }) => {
 
                 </td>
                 <td>
-                    <button onClick={()=>handleDelete(main)} className="btn hover:bg-red-500 text-white btn-sm text-2xl mb-1"><FcCancel /></button> <br />
+                    <button onClick={() => handleDeny(main)} className="btn hover:bg-red-500 text-white btn-sm text-2xl mb-1"><FcCancel /></button> <br />
                 </td>
                 <td>
                     <button className="btn btn-success btn-sm text-2xl mb-1"><RiFeedbackLine /></button>

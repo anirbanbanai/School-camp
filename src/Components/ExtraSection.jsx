@@ -1,13 +1,13 @@
-import group from '../assets/group-single-1-768x506.jpg'
+import group from '../assets/img/3.png'
 
 const ExtraSection = () => {
     return (
         <div>
            <h5 className='text-5xl font-bold text-center'>Our Purpose</h5>
-         <div className="m-5 grid grid-cols-3">
+         <div className="m-5 grid md:grid-cols-3">
             <div className='col-span-2'>
                 <img src={group} alt="" />
-                <div>
+                <div className='m-5'>
                     <h3 className="text-4xl font-bold ">Make learning fun  and make the lessons learned last</h3>
                     <p className="pt-5">
                         High-quality programmes of outdoor education for schools and other educational establishments have been at the heart of what we do at Essex Outdoors for over 50 ☺years. <br /><br />
@@ -54,6 +54,7 @@ const ExtraSection = () => {
                 </form>
             </div>
         </div>
+        <hr  className='border-4 border-dashed'/>
        </div>
     );
 };

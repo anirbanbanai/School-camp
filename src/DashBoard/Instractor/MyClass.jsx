@@ -23,7 +23,7 @@ const MyClass = () => {
                                 <th>Avilable seat</th>
                                 <th>Total Enrol</th>
                                 <td>Status</td>
-                                <th>Update</th>
+                                <th>FeedBack/Update</th>
                             </tr>
                         </thead>
                         <tbody>
