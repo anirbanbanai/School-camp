@@ -15,8 +15,6 @@ const Navbar = () => {
     }
     const navItems = <>
         <li className="text-xl"><NavLink to='/'>Home</NavLink></li>
-        <li className="text-xl"><NavLink to='/demu'>Demu</NavLink></li>
-
         <li className="text-xl"><NavLink to='/instractor'>Instructors</NavLink></li>
         <li className="text-xl"><NavLink to='/class'>Classes</NavLink></li>
         {user && <li className="text-xl"><Link to={isAdmin && '/dash/manageClass' || instractor && '/dash/myclass' || '/dash/myselectedclass'}>

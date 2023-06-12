@@ -31,7 +31,6 @@ import ManageClass from './DashBoard/Admin/ManageClass';
 import AdminHome from './DashBoard/Admin/AdminHome';
 import ErrorPage from './Components/ErrorPage';
 import PaymentHistory from './DashBoard/Student/PaymentHistory';
-import ReactDemu from './Components/ReactDemu';
 const queryClient = new QueryClient()
 
 const router = createBrowserRouter([
@@ -65,10 +64,7 @@ const router = createBrowserRouter([
           <MySelect></MySelect>
         </PrivetRoute>
       },
-      {
-        path:'/demu',
-        element:<ReactDemu></ReactDemu>
-      }
+      
     ]
   },
   {

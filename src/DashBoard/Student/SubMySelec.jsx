@@ -1,6 +1,7 @@
 import { RiDeleteBin5Line } from "react-icons/ri";
 import { CgEnter } from 'react-icons/cg';
 import { Link } from "react-router-dom";
+import { Fade } from "react-awesome-reveal";
 // import useAxiosSecure from "../../Hooks/useAxiosSecure";
 // import Swal from "sweetalert2";
 // import axios from "axios";
@@ -33,12 +34,21 @@ const SubMySelec = ({ m, i }) => {
         <>
             <tr>
                 <th>{i + 1}</th>
-                <th>{m.name}</th>
+                <th>
+                <Fade cascade damping={0.1}>
+                        {m.name}
+                    </Fade>
+                   </th>
                 <td>
-                    <img className="w-[80px]" src={m.img} alt="" />
+                <Fade cascade damping={0.1}>
+                <img className="w-[80px]" src={m.img} alt="" />
+                    </Fade>
+                   
                 </td>
                 <td>
+                <Fade cascade damping={0.1}>
                     {m.instructor_name}
+                    </Fade>
                 </td>
                 <td>
                     ${m.price}
